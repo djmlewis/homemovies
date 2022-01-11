@@ -19,7 +19,7 @@ function buildYearButtons() {
         input.autocomplete = 'off';
         divBtnGp.appendChild(input);
         let label = document.createElement('label');
-        label.className = 'btn btn-outline-dark';
+        label.className = 'btn btn-secondary';
         label.for = input.name;
         label.innerText = yearName;
         label.setAttribute('data-year',yearName);
@@ -28,8 +28,8 @@ function buildYearButtons() {
     });
     // check the first button
     const firstButton = divBtnGp.getElementsByTagName('label')[0];
-    firstButton.classList.add('btn-dark');
-    firstButton.classList.remove('btn-outline-dark');
+    firstButton.classList.add('btn-primary');
+    firstButton.classList.remove('btn-secondary');
     // add its images
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     const firstBtnYear = firstButton.getAttribute('data-year');
