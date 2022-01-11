@@ -4,17 +4,43 @@
     <meta charset="UTF-8">
     <title>Home Movies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon"  href="favicon.ico">
+
+    <!-- bootstrap bundle includes popper -->
+    <script src="js/vendor/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/vendor/bootstrap.css">
 
 </head>
 <body>
+<!-- As a heading -->
+<nav class="navbar navbar-dark bg-dark mb-1">
+    <div class="container-fluid">
+        <span class="navbar-brand float-start mb-0 h1">Home Movies</span>
+        <span class="navbar-brand float-end mb-0 text-secondary">Click a year then a movie to load</span>
+    </div>
+</nav>
 
-<video controls
-       preload="auto"
-       src = "media/mpegs/1993/ T07-01.mp4"
-       poster="media/jpegs/T07-01.jpg"
->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <video  id="video-main"
+                    controls
+                    width="100%"
+                    preload="auto"
+                    src = "media/mpegs/1993/ T07-01.mp4"
+                    poster="media/jpegs/T07-01.jpg"
+            ></video>
+        </div>
+        <div    id="div-menuMain"
+                class="col-md-3 bg-warning">
+            x of three columns
+        </div>
+    </div>
+</div>
 
-</video>
+
+
 
 </body>
 </html>
