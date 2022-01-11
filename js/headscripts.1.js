@@ -28,7 +28,8 @@ function buildYearButtons() {
     });
     // check the first button
     const firstButton = divBtnGp.getElementsByTagName('label')[0];
-    firstButton.checked = true;
+    firstButton.classList.add('btn-dark');
+    firstButton.classList.remove('btn-outline-dark');
     // add its images
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     const firstBtnYear = firstButton.getAttribute('data-year');

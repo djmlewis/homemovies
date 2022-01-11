@@ -1,5 +1,5 @@
 let gvIndexMediaObj = {
-    dirsArray : ['1993'],
+    dirsArray : ['1993','1999'],
     namesArraysObj : {
         '1993' : [
             'T07-01',
@@ -24,8 +24,8 @@ let gvIndexMediaObj = {
             'T07-20',
             'T07-21',
             'T07-22',
-            'T07-23',
-            'T07-01',
-        ]
+            'T07-23'
+        ],
+        '1999' : []
     }
 };
