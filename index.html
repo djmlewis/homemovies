@@ -8,11 +8,15 @@
     <link rel="icon"  href="favicon.ico">
 
     <!-- bootstrap bundle includes popper -->
-    <script src="js/vendor/bootstrap.js"></script>
+    <script src="js/vendor/bootstrap.js" defer></script>
     <link rel="stylesheet" href="css/vendor/bootstrap.css">
+    <!-- my scripts -->
+    <script src="js/indexmedia.1.js" defer></script>
+    <script src="js/headscripts.1.js" defer></script>
+
 
 </head>
-<body>
+<body class="overflow-hidden h-100">
 <!-- As a heading -->
 <nav class="navbar navbar-dark bg-dark mb-1">
     <div class="container-fluid">
@@ -22,19 +26,21 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row overflow-hidden">
         <div class="col-md-9">
             <video  id="video-main"
                     controls
                     width="100%"
                     preload="auto"
-                    src = "media/mpegs/1993/ T07-01.mp4"
-                    poster="media/jpegs/T07-01.jpg"
+                    src = ""
+                    poster=""
             ></video>
         </div>
-        <div    id="div-menuMain"
-                class="col-md-3 bg-warning">
-            x of three columns
+        <div class="col-md-3 bg-warning" style="max-height: 50vh; overflow-y: auto;">
+            <div class="bg-secondary sticky-top">
+                <div id="btngp-yearselect" class="btn-group" role="group" aria-label="Year Select Buttons"></div>
+            </div>
+            <div id="div-thumbnailsouter" class="d-flex flex-row flex-wrap justify-content-between"></div>
         </div>
     </div>
 </div>
