@@ -36,7 +36,7 @@ function buildYearButtons() {
     const thumbNamesArray = gvIndexMediaObj.namesArraysObj[firstBtnYear];
     thumbNamesArray.forEach(thumbName=>{
         let img = document.createElement('img');
-        img.style.width = '30%';
+        img.style.maxWidth = '48%';
         img.className = 'mb-1';
         img.src = 'media/jpegs/'+firstBtnYear+'/'+thumbName+'.jpg';
         divThumbnails.appendChild(img);
