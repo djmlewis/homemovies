@@ -1,0 +1,10 @@
+
+.cssYearBtn {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.cssThumbnailImage {
+    cursor: pointer;
+    pointer-events: all;
+}

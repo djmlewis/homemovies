@@ -9,41 +9,61 @@ window.addEventListener('load', function () {
 });
 
 function buildYearButtons() {
-    const inputPrefix = 'yearBtnCheckbox';
     const divBtnGp = document.getElementById('btngp-yearselect');
     gvIndexMediaObj.dirsArray.forEach(yearName=>{
-        let input = document.createElement('input');
-        input.type = 'radio';
-        input.className = 'btn-check';
-        input.name = inputPrefix+yearName;
-        input.autocomplete = 'off';
-        divBtnGp.appendChild(input);
-        let label = document.createElement('label');
-        label.className = 'btn btn-secondary';
-        label.for = input.name;
-        label.innerText = yearName;
-        label.setAttribute('data-year',yearName);
-        label.onclick = (ev)=>{handleYearClicked(ev)};
-        divBtnGp.appendChild(label);
+        let btn = document.createElement('div');
+        btn.className = 'cssYearBtn text-secondary bg-dark mx-1 mb-1';
+        btn.innerText = yearName;
+        btn.setAttribute('data-year',yearName);
+        btn.onclick = (ev)=>{handleYearClicked(ev)};
+        divBtnGp.appendChild(btn);
     });
-    // check the first button
-    const firstButton = divBtnGp.getElementsByTagName('label')[0];
-    firstButton.classList.add('btn-primary');
-    firstButton.classList.remove('btn-secondary');
+    // select the first button
+    const firstButton = divBtnGp.getElementsByClassName('cssYearBtn')[0];
+    toggleYearBtnSelected(firstButton,true);
     // add its images
+    loadThumbnailsForYear(firstButton.getAttribute('data-year'));
+}
+
+function loadThumbnailsForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
-    const firstBtnYear = firstButton.getAttribute('data-year');
-    const thumbNamesArray = gvIndexMediaObj.namesArraysObj[firstBtnYear];
+    divThumbnails.innerHTML = '';
+    const thumbNamesArray = gvIndexMediaObj.namesArraysObj[year];
     thumbNamesArray.forEach(thumbName=>{
         let img = document.createElement('img');
         img.style.maxWidth = '48%';
-        img.className = 'mb-1';
-        img.src = 'media/jpegs/'+firstBtnYear+'/'+thumbName+'.jpg';
+        img.className = 'cssThumbnailImage mb-1';
+        img.src = 'media/jpegs/'+year+'/'+thumbName+'.jpg';
+        img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
+        img.setAttribute('data-mpegpath','media/mpegs/'+year+'/'+thumbName+'.mp4');
+        img.onclick = (ev)=>{handleThumbnailClicked(ev)};
         divThumbnails.appendChild(img);
     });
 
 }
 
 function handleYearClicked(ev) {
-    console.log(ev.target.getAttribute('data-year'));
+    clearYearButtonSelected();
+    toggleYearBtnSelected(ev.target,true);
+    loadThumbnailsForYear(ev.target.getAttribute('data-year'));
+}
+
+function clearYearButtonSelected() {
+    for(const btn of document.getElementById('btngp-yearselect').getElementsByClassName('cssYearBtn')) toggleYearBtnSelected(btn,false);
+}
+
+function toggleYearBtnSelected(btn,selected) {
+    if(selected) {
+        btn.classList.add('text-warning');
+        btn.classList.remove('text-secondary');
+    } else {
+        btn.classList.remove('text-warning');
+        btn.classList.add('text-secondary');
+    }
+}
+
+function handleThumbnailClicked(ev) {
+    const videoMain = document.getElementById('video-main');
+    videoMain.poster = ev.target.getAttribute('data-jpegpath');
+    videoMain.src = ev.target.getAttribute('data-mpegpath');
 }
