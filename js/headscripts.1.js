@@ -12,7 +12,7 @@ function buildYearButtons() {
     const divBtnGp = document.getElementById('btngp-yearselect');
     gvIndexMediaObj.dirsArray.forEach(yearName=>{
         let btn = document.createElement('div');
-        btn.className = 'cssYearBtn text-secondary bg-dark mx-1 mb-1';
+        btn.className = 'cssYearBtn yearUnselected';
         btn.innerText = yearName;
         btn.setAttribute('data-year',yearName);
         btn.onclick = (ev)=>{handleYearClicked(ev)};
@@ -54,11 +54,11 @@ function clearYearButtonSelected() {
 
 function toggleYearBtnSelected(btn,selected) {
     if(selected) {
-        btn.classList.add('text-warning');
-        btn.classList.remove('text-secondary');
+        btn.classList.add('yearSelected');
+        btn.classList.remove('yearUnselected');
     } else {
-        btn.classList.remove('text-warning');
-        btn.classList.add('text-secondary');
+        btn.classList.remove('yearSelected');
+        btn.classList.add('yearUnselected');
     }
 }
 

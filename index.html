@@ -20,25 +20,26 @@
 
 </head>
 <body class="overflow-hidden h-100 mh-100 bg-dark">
-
 <div class="container-fluid mt-1">
     <div class="row overflow-hidden">
         <div class="col-md-9">
-            <video  id="video-main"
-                    controls
-                    width="100%"
-                    preload="auto"
-                    src = ''
-                    poster=""
-                    autoplay
-                    playsinline
-            ></video>
-        </div>
-        <div class="col-md-3" style="max-height: 95vh; overflow-y: auto;">
-            <div class="sticky-top bg-dark mb-1">
+            <div class=" bg-dark mb-1">
                 <div id="btngp-yearselect" class="d-flex flex-row flex-wrap" aria-label="Year Select Buttons"></div>
             </div>
-            <div id="div-thumbnailsouter" class="d-flex flex-row flex-wrap"></div>
+            <div>
+                <video  id="video-main"
+                        controls
+                        width="100%"
+                        preload="auto"
+                        src = ''
+                        poster=""
+                        autoplay
+                        playsinline
+                ></video>
+            </div>
+        </div>
+        <div class="col-md-3 smallscreen" style="">
+            <div id="div-thumbnailsouter" class="d-flex flex-row flex-wrap justify-content-around"></div>
         </div>
     </div>
 </div>
