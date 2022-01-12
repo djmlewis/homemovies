@@ -1,18 +1,33 @@
 // call these functions on DOM loaded
 window.addEventListener('DOMContentLoaded', function () {
+    applySettingsAtStartup();
     buildYearButtons();
 });
 
 // call these functions on page fully loaded
 window.addEventListener('load', function () {
-
+    //handle video being set resize
+    document.getElementById('div-video').addEventListener('resize',()=>handleDivVideoResize());
+    window.addEventListener('resize',()=>handleDivVideoResize());
+    handleDivVideoResize();
 });
+
+function applySettingsAtStartup() {
+    setupAutoplay();
+}
+
+function setupAutoplay() {
+    if (!localStorage.getItem(ls_autoplay)) localStorage.setItem(ls_autoplay, "true");
+    const autoplay = localStorage.getItem(ls_autoplay) === 'true';
+    document.getElementById('switch-autoplay').checked = autoplay;
+    if(!autoplay) document.getElementById('video-main').removeAttribute('autoplay');
+}
 
 function buildYearButtons() {
     const divBtnGp = document.getElementById('btngp-yearselect');
     gvIndexMediaObj.dirsArray.forEach(yearName=>{
         let btn = document.createElement('div');
-        btn.className = 'cssYearBtn yearUnselected';
+        btn.className = 'cssYearBtn cssYearUnselected';
         btn.innerText = yearName;
         btn.setAttribute('data-year',yearName);
         btn.onclick = (ev)=>{handleYearClicked(ev)};
@@ -31,7 +46,7 @@ function loadThumbnailsForYear(year) {
     const thumbNamesArray = gvIndexMediaObj.namesArraysObj[year];
     thumbNamesArray.forEach(thumbName=>{
         let img = document.createElement('img');
-        img.style.maxWidth = '48%';
+        // img.style.maxWidth = '48%';
         img.className = 'cssThumbnailImage mb-1';
         img.src = 'media/jpegs/'+year+'/'+thumbName+'.jpg';
         img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
@@ -39,7 +54,7 @@ function loadThumbnailsForYear(year) {
         img.onclick = (ev)=>{handleThumbnailClicked(ev)};
         divThumbnails.appendChild(img);
     });
-
+    handleDivVideoResize();
 }
 
 function handleYearClicked(ev) {
@@ -54,11 +69,11 @@ function clearYearButtonSelected() {
 
 function toggleYearBtnSelected(btn,selected) {
     if(selected) {
-        btn.classList.add('yearSelected');
-        btn.classList.remove('yearUnselected');
+        btn.classList.add('cssYearSelected');
+        btn.classList.remove('cssYearUnselected');
     } else {
-        btn.classList.remove('yearSelected');
-        btn.classList.add('yearUnselected');
+        btn.classList.remove('cssYearSelected');
+        btn.classList.add('cssYearUnselected');
     }
 }
 
@@ -66,4 +81,21 @@ function handleThumbnailClicked(ev) {
     const videoMain = document.getElementById('video-main');
     videoMain.poster = ev.target.getAttribute('data-jpegpath');
     videoMain.src = ev.target.getAttribute('data-mpegpath');
+}
+
+function handleDivVideoResize() {
+    const divThumbs = document.getElementById('div-thumbnailsouter');
+    // videoHeight accpunts for whether year buttons sit on top or not
+    const videoHeight = document.getElementById('div-video').getBoundingClientRect().bottom;
+    const divThumbsWidth = divThumbs.offsetWidth;
+    const windowWidth = window.innerWidth;
+    // ratio goes from 1.x (underneath) to 4.x (alongside)
+    divThumbs.style.paddingBottom = windowWidth / divThumbsWidth > 2 ? '0px' : (videoHeight+4)+'px';
+}
+
+function handleSwitchAutoplayClicked() {
+    const checked = document.getElementById('switch-autoplay').checked;
+    if(checked) document.getElementById('video-main').setAttribute('autoplay','');
+    else document.getElementById('video-main').removeAttribute('autoplay');
+    localStorage.setItem(ls_autoplay, checked ? "true" : 'false');
 }

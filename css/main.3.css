@@ -1,0 +1,63 @@
+body {
+    background-color: #212121;
+
+}
+
+
+.form-check-input:checked {
+    background-color: #ffad00;
+    border-color: #ffad00;
+}
+
+/* *** Initial settings for PHONE PORTRAIT *** */
+.cssColVideo {
+    background-color: #212121;
+
+}
+.cssYearBtn {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.cssThumbnailImage {
+    cursor: pointer;
+    pointer-events: all;
+    max-width: 31%;
+}
+
+.cssDivThumbnails {
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.cssDivYearSelect {
+    max-height: none;
+    overflow: hidden;
+    background-color: #212121;
+}
+.cssYearBtn {
+    padding: 3px 6px;
+    margin: 0 1px 1px 1px;
+    border-radius: 4px;
+}
+.cssYearSelected {
+    background-color: #ffad00;
+    color: black;
+}
+.cssYearUnselected {
+    background-color: #212121;
+    color: #797979;
+}
+
+/* *** WHEN PHONE LANDSCAPE or wider *** */
+@media (min-width: 768px) {
+    .cssDivYearSelect {
+        max-height: 99vh;
+        overflow-y: auto;
+    }
+    .cssThumbnailImage {
+        max-width: 48%;
+    }
+
+}
