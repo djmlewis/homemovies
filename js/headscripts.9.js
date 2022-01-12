@@ -90,8 +90,18 @@ function handleDivVideoResize() {
     const videoHeight = document.getElementById('div-video').getBoundingClientRect().bottom + window.visualViewport.offsetTop;
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
-    // ratio goes from 1.x (underneath) to 4.x (alongside)
-    divThumbs.style.paddingBottom = windowWidth / divThumbsWidth > 2 ? (window.visualViewport.offsetTop+200)+'px' : (videoHeight+200)+'px';
+    // ratio goes from 1.x (stacked) to 4.x (alongside)
+    if(windowWidth / divThumbsWidth > 2) {
+        //alongside
+        divThumbs.style.paddingBottom = (window.visualViewport.offsetTop+200)+'px';
+        document.getElementById('btngp-yearselect').style.marginBottom = '200px';
+    } else {
+        // stacked
+        divThumbs.style.paddingBottom = (videoHeight+200)+'px';
+        document.getElementById('btngp-yearselect').style.marginBottom = '2px';
+    }
+
+
 }
 
 function handleSwitchAutoplayClicked() {
