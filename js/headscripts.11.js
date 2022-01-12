@@ -87,7 +87,7 @@ function handleThumbnailClicked(ev) {
 function handleDivVideoResize() {
     const divThumbs = document.getElementById('div-thumbnailsouter');
     // videoHeight accpunts for whether year buttons sit on top or not
-    const videoHeight = document.getElementById('div-video').getBoundingClientRect().bottom + window.visualViewport.offsetTop;
+    const videoHeight = divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
     // ratio goes from 1.x (stacked) to 4.x (alongside)
