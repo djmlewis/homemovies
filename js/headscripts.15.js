@@ -45,15 +45,17 @@ function loadThumbnailsForYear(year) {
     divThumbnails.innerHTML = '';
     const thumbNamesArray = gvIndexMediaObj.namesArraysObj[year];
     thumbNamesArray.forEach(thumbName=>{
+        let imgdiv = document.createElement('div');
         let img = document.createElement('img');
-        // img.style.maxWidth = '48%';
-        img.className = 'cssThumbnailImage';
+        img.style.width = '100%';
+        imgdiv.className = 'cssThumbnailImage';
         img.src = 'media/jpegs/'+year+'/'+thumbName+'.jpg';
         img.setAttribute('data-thumbName',thumbName);
         img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
         img.setAttribute('data-mpegpath','media/mpegs/'+year+'/'+thumbName+'.mp4');
         img.onclick = (ev)=>{handleThumbnailClicked(ev)};
-        divThumbnails.appendChild(img);
+        imgdiv.appendChild(img);
+        divThumbnails.appendChild(imgdiv);
     });
     handleDivVideoResize();
 }
