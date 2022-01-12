@@ -93,11 +93,11 @@ function handleDivVideoResize() {
     // ratio goes from 1.x (stacked) to 4.x (alongside)
     if(windowWidth / divThumbsWidth > 2) {
         //alongside
-        divThumbs.style.paddingBottom = (window.visualViewport.offsetTop+200)+'px';
-        document.getElementById('btngp-yearselect').style.marginBottom = '200px';
+        divThumbs.style.paddingBottom = (150)+'px';//window.visualViewport.offsetTop+
+        document.getElementById('btngp-yearselect').style.marginBottom = '150px';
     } else {
         // stacked
-        divThumbs.style.paddingBottom = (videoHeight+200)+'px';
+        divThumbs.style.paddingBottom = (videoHeight+150)+'px';
         document.getElementById('btngp-yearselect').style.marginBottom = '2px';
     }
 
