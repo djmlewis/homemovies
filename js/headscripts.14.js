@@ -47,7 +47,7 @@ function loadThumbnailsForYear(year) {
     thumbNamesArray.forEach(thumbName=>{
         let img = document.createElement('img');
         // img.style.maxWidth = '48%';
-        img.className = 'cssThumbnailImage mb-1';
+        img.className = 'cssThumbnailImage';
         img.src = 'media/jpegs/'+year+'/'+thumbName+'.jpg';
         img.setAttribute('data-thumbName',thumbName);
         img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
