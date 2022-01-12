@@ -21,15 +21,15 @@
 
 </head>
 <body class="overflow-hidden h-100 mh-100">
-<div class="container-fluid mt-1">
+<div class="container-fluid overflow-hidden mt-1">
     <div class="row overflow-hidden">
-        <div class="col-md-1">
+        <div class="col-md-1 overflow-hidden">
             <div class="cssDivYearSelect mb-1">
                 <div id="btngp-yearselect" class="d-flex flex-row flex-wrap justify-content-evenly" aria-label="Year Select Buttons"></div>
             </div>
         </div>
-        <div class="col-md-8 cssColVideo">
-            <div id="div-video">
+        <div class="col-md-8 cssColVideo overflow-hidden">
+            <div id="div-video" class="overflow-hidden">
                 <video  id="video-main"
                         controls
                         width="100%"
@@ -38,15 +38,16 @@
                         poster=""
                         autoplay
                         playsinline
+                        class="overflow-hidden"
                 ></video>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
-                    <label class="form-check-label text-white" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video on load</label>
+                <div class="form-check form-switch overflow-hidden">
+                    <input class="form-check-input overflow-hidden" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
+                    <label class="form-check-label text-white overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video on load</label>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 cssDivThumbnails" style="">
-            <div id="div-thumbnailsouter" class="d-flex flex-row flex-wrap justify-content-around"></div>
+        <div class="col-md-3 overflow-hidden " style="">
+            <div id="div-thumbnailsouter" class=" cssDivThumbnails d-flex flex-row flex-wrap justify-content-around"></div>
         </div>
     </div>
 </div>
