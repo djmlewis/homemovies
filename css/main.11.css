@@ -42,9 +42,9 @@ body {
 .cssThumbnailImage {
     cursor: pointer;
     pointer-events: all;
-    width: 31%;
+    width: 30%;
     max-width: 31%;
-    margin: 2px;
+    margin: 1px;
 }
 
 .cssDivThumbnails {
@@ -80,7 +80,7 @@ body {
         overflow-y: auto;
     }
     .cssThumbnailImage {
-        width: 48%;
+        width: 45%;
         max-width: 48%;
     }
 
