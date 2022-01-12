@@ -12,10 +12,13 @@ body {
     border-color: #ffad00;
 }
 
-.cssDivThumbName {
+.cssDivThumbName, .cssDivThumbTitle {
     color: #797979;
     font-family: "Trebuchet MS",sans-serif;
     font-size: small;
+}
+.cssDivThumbTitle {
+    text-align: center;
 }
 /* *** Initial settings for PHONE PORTRAIT *** */
 .cssColVideo {
