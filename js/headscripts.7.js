@@ -81,6 +81,7 @@ function handleThumbnailClicked(ev) {
     const videoMain = document.getElementById('video-main');
     videoMain.poster = ev.target.getAttribute('data-jpegpath');
     videoMain.src = ev.target.getAttribute('data-mpegpath');
+    handleDivVideoResize();
 }
 
 function handleDivVideoResize() {
@@ -90,7 +91,7 @@ function handleDivVideoResize() {
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
     // ratio goes from 1.x (underneath) to 4.x (alongside)
-    divThumbs.style.paddingBottom = windowWidth / divThumbsWidth > 2 ? window.visualViewport.offsetTop+'px' : (videoHeight+4)+'px';
+    divThumbs.style.paddingBottom = windowWidth / divThumbsWidth > 2 ? (window.visualViewport.offsetTop+100)+'px' : (videoHeight+100)+'px';
 }
 
 function handleSwitchAutoplayClicked() {
