@@ -49,6 +49,7 @@ function loadThumbnailsForYear(year) {
         // img.style.maxWidth = '48%';
         img.className = 'cssThumbnailImage mb-1';
         img.src = 'media/jpegs/'+year+'/'+thumbName+'.jpg';
+        img.setAttribute('data-thumbName',thumbName);
         img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
         img.setAttribute('data-mpegpath','media/mpegs/'+year+'/'+thumbName+'.mp4');
         img.onclick = (ev)=>{handleThumbnailClicked(ev)};
@@ -81,6 +82,7 @@ function handleThumbnailClicked(ev) {
     const videoMain = document.getElementById('video-main');
     videoMain.poster = ev.target.getAttribute('data-jpegpath');
     videoMain.src = ev.target.getAttribute('data-mpegpath');
+    document.getElementById('div-thumbName').innerText = ev.target.getAttribute('data-thumbName');
     handleDivVideoResize();
 }
 

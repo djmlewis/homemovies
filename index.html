@@ -11,12 +11,12 @@
     <script src="js/vendor/bootstrap.js" defer></script>
     <link rel="stylesheet" href="css/vendor/bootstrap.css">
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.3.css">
+    <link rel="stylesheet" href="css/main.4.css">
 
     <!-- my scripts -->
     <script src="js/globals.1.js"></script>
-    <script src="js/indexmedia.5.js" defer></script>
-    <script src="js/headscripts.11.js" defer></script>
+    <script src="js/indexmedia.6.js" defer></script>
+    <script src="js/headscripts.12.js" defer></script>
 
 
 </head>
@@ -40,9 +40,12 @@
                         playsinline
                         class="overflow-hidden"
                 ></video>
-                <div class="form-check form-switch overflow-hidden">
-                    <input class="form-check-input overflow-hidden" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
-                    <label class="form-check-label text-white overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video on load</label>
+                <div class="d-flex flex-row flex-nowrap justify-content-between">
+                    <div class="form-check form-switch overflow-hidden">
+                        <input class="form-check-input overflow-hidden" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
+                        <label class="form-check-label text-white overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video on load</label>
+                    </div>
+                    <div id="div-thumbName" class="cssDivThumbName"></div>
                 </div>
             </div>
         </div>

@@ -12,6 +12,11 @@ body {
     border-color: #ffad00;
 }
 
+.cssDivThumbName {
+    color: #797979;
+    font-family: "Trebuchet MS",sans-serif;
+    font-size: small;
+}
 /* *** Initial settings for PHONE PORTRAIT *** */
 .cssColVideo {
     background-color: #212121;
