@@ -90,7 +90,7 @@ function handleDivVideoResize() {
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
     // ratio goes from 1.x (underneath) to 4.x (alongside)
-    divThumbs.style.paddingBottom = windowWidth / divThumbsWidth > 2 ? '0px' : (videoHeight+4)+'px';
+    divThumbs.style.paddingBottom = windowWidth / divThumbsWidth > 2 ? divThumbs.getBoundingClientRect().top+'px' : (videoHeight+4)+'px';
 }
 
 function handleSwitchAutoplayClicked() {
