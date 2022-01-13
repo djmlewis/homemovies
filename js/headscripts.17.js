@@ -25,7 +25,7 @@ function setupAutoplay() {
 
 function buildYearButtons() {
     const divBtnGp = document.getElementById('btngp-yearselect');
-    Object.keys(gvIndexMediaObj.namesArraysObj).forEach(yearName=>{
+    Object.keys(gvIndexMediaObj).forEach(yearName=>{
         let btn = document.createElement('div');
         btn.className = 'cssYearBtn cssYearUnselected';
         btn.innerText = yearName;
@@ -43,7 +43,7 @@ function buildYearButtons() {
 function loadThumbnailsForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     divThumbnails.innerHTML = '';
-    const thumbNamesArray = gvIndexMediaObj.namesArraysObj[year];
+    const thumbNamesArray = gvIndexMediaObj[year];
     thumbNamesArray.forEach(thumbName=>{
         let imgdiv = document.createElement('div');
         let img = document.createElement('img');
@@ -89,19 +89,20 @@ function handleThumbnailClicked(ev) {
 }
 
 function handleDivVideoResize() {
+    const paddingBuffer = 8;//150;
     const divThumbs = document.getElementById('div-thumbnailsouter');
     // videoHeight accpunts for whether year buttons sit on top or not
-    const videoHeight = divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
+    const offsetTop = divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
     // ratio goes from 1.x (stacked) to 4.x (alongside)
     if(windowWidth / divThumbsWidth > 2) {
         //alongside
-        divThumbs.style.paddingBottom = (150)+'px';//window.visualViewport.offsetTop+
+        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
         document.getElementById('btngp-yearselect').style.marginBottom = '150px';
     } else {
         // stacked
-        divThumbs.style.paddingBottom = (videoHeight+150)+'px';
+        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
         document.getElementById('btngp-yearselect').style.marginBottom = '2px';
     }
 

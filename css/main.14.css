@@ -1,11 +1,24 @@
 body {
     background-color: #212121;
     overflow: hidden;
-    height: 100vh;
-    max-height: 100vh;
-    min-height: 100vh;
+    height: 100%;
+    /*100vh;*/
+    max-height: 100%;
+    min-height: 100%;
 }
+/*html {*/
+/*    height: 100%;*/
+/*    !*100vh;*!*/
+/*    max-height: 100%;*/
+/*    min-height: 100%;*/
+/*}*/
 
+.hundredpc {
+    height: 100%;
+    /*100vh;*/
+    max-height: 100%;
+    min-height: 100%;
+}
 
 .form-check-input:checked {
     background-color: #ffad00;
@@ -81,7 +94,7 @@ body {
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
     .cssDivYearSelect {
-        max-height: 99vh;
+        max-height: 100vh;
         overflow-y: auto;
     }
     .cssThumbnailImage {
