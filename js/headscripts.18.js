@@ -89,7 +89,7 @@ function handleThumbnailClicked(ev) {
 }
 
 function handleDivVideoResize() {
-    const paddingBuffer = 8;//150;
+    const paddingBuffer = 100;//150;
     const divThumbs = document.getElementById('div-thumbnailsouter');
     // videoHeight accpunts for whether year buttons sit on top or not
     const offsetTop = divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
@@ -103,7 +103,7 @@ function handleDivVideoResize() {
     } else {
         // stacked
         divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
-        document.getElementById('btngp-yearselect').style.marginBottom = '2px';
+        document.getElementById('btngp-yearselect').style.marginBottom = '4px';
     }
 
 
