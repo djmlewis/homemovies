@@ -25,7 +25,7 @@ function setupAutoplay() {
 
 function buildYearButtons() {
     const divBtnGp = document.getElementById('btngp-yearselect');
-    gvIndexMediaObj.dirsArray.forEach(yearName=>{
+    Object.keys(gvIndexMediaObj.namesArraysObj).forEach(yearName=>{
         let btn = document.createElement('div');
         btn.className = 'cssYearBtn cssYearUnselected';
         btn.innerText = yearName;
@@ -113,4 +113,18 @@ function handleSwitchAutoplayClicked() {
     if(checked) document.getElementById('video-main').setAttribute('autoplay','');
     else document.getElementById('video-main').removeAttribute('autoplay');
     localStorage.setItem(ls_autoplay, checked ? "true" : 'false');
+}
+
+function handleFavouriteClicked() {
+    const img = document.getElementById('img-favourite');
+    if(img.src.includes('Empty')) {
+        img.src = "media/img/heartFilled.png";
+        img.alt = "Favourite";
+        img.title = "Tap to unfavourite";
+    } else
+    {
+        img.src = "media/img/heartEmpty.png";
+        img.alt = "";
+        img.title = "Tap to make favourite";
+    }
 }

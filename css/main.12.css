@@ -73,6 +73,11 @@ body {
     color: #797979;
 }
 
+.cssDivFavourite {
+    cursor: pointer;
+    pointer-events: all;
+}
+
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
     .cssDivYearSelect {

@@ -11,12 +11,12 @@
     <script src="js/vendor/bootstrap.js" defer></script>
     <link rel="stylesheet" href="css/vendor/bootstrap.css">
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.11.css">
+    <link rel="stylesheet" href="css/main.12.css">
 
     <!-- my scripts -->
-    <script src="js/globals.1.js"></script>
-    <script src="js/indexmedia.8.js" defer></script>
-    <script src="js/headscripts.15.js" defer></script>
+    <script src="js/globals.2.js"></script>
+    <script src="js/indexmedia.10.js" defer></script>
+    <script src="js/headscripts.16.js" defer></script>
 
 
 </head>
@@ -43,9 +43,16 @@
                 <div class="d-flex flex-row flex-nowrap justify-content-between">
                     <div class="form-check form-switch overflow-hidden">
                         <input class="form-check-input overflow-hidden" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
-                        <label class="form-check-label cssSwitchAutoplay overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video on load</label>
+                        <label class="form-check-label cssSwitchAutoplay overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video</label>
                     </div>
                     <div id="div-thumbName" class="cssDivThumbName"></div>
+                    <div class="cssDivFavourite" onclick="handleFavouriteClicked()">
+                        <img    id="img-favourite"
+                                src="media/img/heartEmpty.png"
+                                height="50%"
+                                title="Tap to make favourite"
+                                alt="">
+                    </div>
                 </div>
             </div>
         </div>
