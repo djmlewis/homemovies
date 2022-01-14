@@ -34,11 +34,17 @@ function buildYearButtons() {
         btn.onclick = (ev)=>{handleYearClicked(ev)};
         divBtnGp.appendChild(btn);
     });
-    // select the first button
-    const firstButton = divBtnGp.getElementsByClassName('cssYearBtn')[0];
-    toggleYearBtnSelected(firstButton,true);
+    const btns = Array.from(divBtnGp.getElementsByClassName('cssYearBtn'));
+    let prefBtn = btns[0];
+    // select the last used if available or keep first button
+    const savedYear = localStorage.getItem(ls_yearButtonName);
+    if (!!savedYear) {
+        const savedBtn = btns.find(element => element.innerText === savedYear);
+        if(!!savedBtn) prefBtn = savedBtn;
+    }
+    toggleYearBtnSelected(prefBtn,true);
     // add its images
-    loadThumbnailsForYear(firstButton.getAttribute('data-year'));
+    loadThumbnailsForYear(prefBtn.getAttribute('data-year'));
 }
 
 function loadThumbnailsForYear(year) {
@@ -73,7 +79,9 @@ function thumnNailDivForNameYear(thumbName, year) {
 function handleYearClicked(ev) {
     clearYearButtonSelected();
     toggleYearBtnSelected(ev.target,true);
-    loadThumbnailsForYear(ev.target.getAttribute('data-year'));
+    const year = ev.target.getAttribute('data-year');
+    loadThumbnailsForYear(year);
+    localStorage.setItem(ls_yearButtonName,year);
 }
 
 function clearYearButtonSelected() {
