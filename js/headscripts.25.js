@@ -137,7 +137,7 @@ function handleSwitchAutoplayClicked() {
 
 function checkWifiConnection() {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    console.log(connection.type);
+    alert(connection.type);
     if (!connection || connection.type !== 'wifi' || connection.type !== 'ethernet') {
         alert('Very large downloads - suggest use wifi or ethernet');
     }
