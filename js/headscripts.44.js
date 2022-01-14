@@ -106,7 +106,7 @@ function handleThumbnailClicked(ev) {
 }
 
 function handleDivVideoResize() {
-    const paddingBuffer = 150;//150;
+    const paddingBuffer = 175;//150;
     const divThumbs = document.getElementById('div-thumbnailsouter');
     //const colThumbs = document.getElementById('col-thumbnails');
     // videoHeight accounts for whether year buttons sit on top or not
