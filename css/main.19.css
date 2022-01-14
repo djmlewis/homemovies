@@ -47,7 +47,8 @@ body {
 }
 .cssVideoBottomDiv {
     max-height: 21px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
+    padding-top: 4px;
 }
 
 .cssYearBtn {
