@@ -138,6 +138,7 @@ function handleSwitchAutoplayClicked() {
 function checkWifiConnection() {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     alert(connection.type);
+    document.getElementById('div-thumbName').innerText = 'type '+connection.type;
     if (!connection || connection.type !== 'wifi' || connection.type !== 'ethernet') {
         alert('Very large downloads - suggest use wifi or ethernet');
     }
