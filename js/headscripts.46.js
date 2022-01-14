@@ -120,6 +120,7 @@ function handleDivVideoResize() {
         divYears.style.paddingBottom = paddingBuffer+'px';
         //push the video in a bit
         divYears.style.marginLeft = 20+'px';
+        divYears.style.marginRight = 20+'px';
     } else {
         // stacked
         divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
