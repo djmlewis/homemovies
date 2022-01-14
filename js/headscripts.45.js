@@ -108,20 +108,23 @@ function handleThumbnailClicked(ev) {
 function handleDivVideoResize() {
     const paddingBuffer = 175;//150;
     const divThumbs = document.getElementById('div-thumbnailsouter');
-    //const colThumbs = document.getElementById('col-thumbnails');
+    const divYears = document.getElementById('btngp-yearselect');
     // videoHeight accounts for whether year buttons sit on top or not
-    const offsetTop = document.getElementById('btngp-yearselect').getBoundingClientRect().bottom;//divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
+    const offsetTop = divYears.getBoundingClientRect().bottom;//divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
     // ratio goes from 1.x (stacked) to 4.x (alongside)
     if(windowWidth / divThumbsWidth > 2) {
         //alongside
         divThumbs.style.paddingBottom = (6+paddingBuffer)+'px';// (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
-        document.getElementById('btngp-yearselect').style.paddingBottom = paddingBuffer+'px';
+        divYears.style.paddingBottom = paddingBuffer+'px';
+        //push the video in a bit
+        divYears.style.marginLeft = 20+'px';
     } else {
         // stacked
         divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
-        document.getElementById('btngp-yearselect').style.paddingBottom = '4px';
+        divYears.style.paddingBottom = '4px';
+        divYears.style.marginLeft = '0';
     }
 }
 
