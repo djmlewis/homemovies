@@ -2,7 +2,6 @@
 window.addEventListener('DOMContentLoaded', function () {
     applySettingsAtStartup();
     buildYearButtons();
-    checkWifiConnection();
 });
 
 // call these functions on page fully loaded
@@ -133,17 +132,4 @@ function handleSwitchAutoplayClicked() {
     if(checked) document.getElementById('video-main').setAttribute('autoplay','');
     else document.getElementById('video-main').removeAttribute('autoplay');
     localStorage.setItem(ls_autoplay, checked ? "true" : 'false');
-}
-
-function checkWifiConnection() {
-    document.getElementById('div-thumbName').innerText = 'type SSS';
-    let connect = navigator.connection;
-    // alert(connection.type);
-    document.getElementById('div-thumbName').innerText = 'type FF';
-    if(connect) document.getElementById('div-thumbName').innerText = connect.type+'?';
-    else document.getElementById('div-thumbName').innerText = 'NONE';
-    // if (!connection || connection.type !== 'wifi' || connection.type !== 'ethernet') {
-    //     alert('Very large downloads - suggest use wifi or ethernet');
-    //     document.getElementById('div-thumbName').innerText = 'type BAD';
-    // }
 }
