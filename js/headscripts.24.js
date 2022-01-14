@@ -2,6 +2,7 @@
 window.addEventListener('DOMContentLoaded', function () {
     applySettingsAtStartup();
     buildYearButtons();
+    checkWifiConnection();
 });
 
 // call these functions on page fully loaded
@@ -134,3 +135,10 @@ function handleSwitchAutoplayClicked() {
     localStorage.setItem(ls_autoplay, checked ? "true" : 'false');
 }
 
+function checkWifiConnection() {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    console.log(connection.type);
+    if (!connection || connection.type !== 'wifi' || connection.type !== 'ethernet') {
+        alert('Very large downloads - suggest use wifi or ethernet');
+    }
+}
