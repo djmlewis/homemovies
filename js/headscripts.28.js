@@ -138,6 +138,7 @@ function handleSwitchAutoplayClicked() {
 function checkWifiConnection() {
     document.getElementById('div-thumbName').innerText = 'type o';
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    document.getElementById('div-thumbName').innerText = 'type XXX';
     alert(connection.type);
     document.getElementById('div-thumbName').innerText = 'type '+connection.type;
     if (!connection || connection.type !== 'wifi' || connection.type !== 'ethernet') {
