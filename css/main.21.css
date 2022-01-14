@@ -110,6 +110,7 @@ body {
     cursor: pointer;
     pointer-events: all;
     max-height: 20px;
+    padding-right: 6px;
 }
 
 /* *** WHEN PHONE LANDSCAPE or wider *** */
