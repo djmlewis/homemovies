@@ -46,7 +46,7 @@ body {
     padding-bottom: 4px;
 }
 .cssVideoBottomDiv {
-    max-height: 21px;
+    /*max-height: 21px;*/
     padding-bottom: 10px;
     padding-top: 4px;
     background-color: grey;
