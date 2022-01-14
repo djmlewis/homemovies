@@ -119,7 +119,7 @@ function handleDivVideoResize() {
         divThumbs.style.paddingBottom = (6+paddingBuffer)+'px';// (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
         divYears.style.paddingBottom = paddingBuffer+'px';
         //push the video in a bit
-        divYears.style.marginLeft = 20+'px';
+        divYears.style.paddingLeft = 20+'px';
         divYears.style.paddingRight = 20+'px';
     } else {
         // stacked
