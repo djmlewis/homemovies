@@ -114,7 +114,6 @@ function handleDivVideoResize() {
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
     // ratio goes from 1.x (stacked) to 4.x (alongside)
-    document.getElementById('div-thumbName').innerText = String(windowWidth / divThumbsWidth);
     if(windowWidth / divThumbsWidth > 2) {
         //alongside
         divThumbs.style.paddingBottom = (6+paddingBuffer)+'px';// (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
