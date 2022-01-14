@@ -11,11 +11,11 @@
     <script src="js/vendor/bootstrap.js" defer></script>
     <link rel="stylesheet" href="css/vendor/bootstrap.css">
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.17.css">
+    <link rel="stylesheet" href="css/main.18.css">
 
     <!-- my scripts -->
     <script src="js/globals.4.js" defer></script>
-    <script src="js/indexmedia.11.js" defer></script>
+    <script src="js/indexmedia.12.js" defer></script>
     <script src="js/favourites.3.js" defer></script>
     <script src="js/headscripts.21.js" defer></script>
 
@@ -24,7 +24,7 @@
 <body class="overflow-hidden">
 <div class="container-fluid overflow-hidden">
     <div class="row overflow-hidden">
-        <div class="col-md-8 cssColVideo overflow-hidden">
+        <div class="col cssColVideo overflow-hidden">
             <div id="div-video" class="overflow-hidden">
                 <video  id="video-main"
                         controls
@@ -46,9 +46,8 @@
                 <img hidden
                      id="img-favourite"
                      src="img/heartEmpty.png"
-                     class="cssDivFavourite"
+                     class="cssImgFavourite"
                      onclick="handleFavouriteClicked()"
-                     height="20px"
                      title="Tap to make favourite"
                      alt="">
             </div>
@@ -58,7 +57,7 @@
                 <div id="btngp-yearselect" class="d-flex flex-row flex-wrap justify-content-evenly" aria-label="Year Select Buttons"></div>
             </div>
         </div>
-        <div id="col-thumbnails" class="col-md-3 d-flex flex-column cssColThumbnails">
+        <div id="col-thumbnails" class="col-md-4 d-flex flex-column cssColThumbnails">
             <div id="div-thumbnailsouter" class="cssDivThumbnails flex-shrink-1 d-flex flex-row flex-wrap align-items-start justify-content-evenly"></div>
         </div>
     </div>

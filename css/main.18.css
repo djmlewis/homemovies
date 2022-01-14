@@ -104,9 +104,10 @@ body {
     color: #797979;
 }
 
-.cssDivFavourite {
+.cssImgFavourite {
     cursor: pointer;
     pointer-events: all;
+    max-height: 20px;
 }
 
 /* *** WHEN PHONE LANDSCAPE or wider *** */
