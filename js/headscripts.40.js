@@ -116,15 +116,13 @@ function handleDivVideoResize() {
     // ratio goes from 1.x (stacked) to 4.x (alongside)
     if(windowWidth / divThumbsWidth > 2) {
         //alongside
-        colThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
-        document.getElementById('btngp-yearselect').style.marginBottom = '150px';
+        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
+        document.getElementById('btngp-yearselect').style.paddingBottom = paddingBuffer+'px';
     } else {
         // stacked
-        colThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
-        document.getElementById('btngp-yearselect').style.marginBottom = '4px';
+        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
+        document.getElementById('btngp-yearselect').style.paddingBottom = '4px';
     }
-
-
 }
 
 function handleSwitchAutoplayClicked() {
@@ -133,3 +131,25 @@ function handleSwitchAutoplayClicked() {
     else document.getElementById('video-main').removeAttribute('autoplay');
     localStorage.setItem(ls_autoplay, checked ? "true" : 'false');
 }
+
+/*
+function handleDivVideoResize() {
+    const paddingBuffer = 125;//150;
+    const divThumbs = document.getElementById('div-thumbnailsouter');
+    const colThumbs = document.getElementById('col-thumbnails');
+    // videoHeight accpunts for whether year buttons sit on top or not
+    const offsetTop = divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
+    const divThumbsWidth = divThumbs.offsetWidth;
+    const windowWidth = window.innerWidth;
+    // ratio goes from 1.x (stacked) to 4.x (alongside)
+    if(windowWidth / divThumbsWidth > 2) {
+        //alongside
+        colThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
+        document.getElementById('btngp-yearselect').style.marginBottom = '150px';
+    } else {
+        // stacked
+        colThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
+        document.getElementById('btngp-yearselect').style.marginBottom = '4px';
+    }
+}
+*/
