@@ -140,7 +140,8 @@ function checkWifiConnection() {
     let connect = navigator.connection ;//|| navigator.mozConnection || navigator.webkitConnection;
     // alert(connection.type);
     document.getElementById('div-thumbName').innerText = 'type FF';
-    document.getElementById('div-thumbName').innerText = connect.type+'?';
+    if(connect) document.getElementById('div-thumbName').innerText = connect.type+'?';
+    else document.getElementById('div-thumbName').innerText = 'NONE';
     // if (!connection || connection.type !== 'wifi' || connection.type !== 'ethernet') {
     //     alert('Very large downloads - suggest use wifi or ethernet');
     //     document.getElementById('div-thumbName').innerText = 'type BAD';
