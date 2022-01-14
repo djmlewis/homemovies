@@ -42,13 +42,12 @@ body {
 
 /* *** Initial settings for PHONE PORTRAIT *** */
 .cssColVideo {
-    background-color: #212121;
-
+    background-color: #0c0c0c;
+    padding-bottom: 4px;
 }
 .cssVideoBottomDiv {
     max-height: 21px;
-    padding: 0;
-    margin: 0;
+    padding-bottom: 8px;
 }
 
 .cssYearBtn {
@@ -89,7 +88,7 @@ body {
 .cssDivYearSelect {
     max-height: none;
     overflow: hidden;
-    background-color: #212121;
+    margin-top: 6px;
 }
 .cssYearBtn {
     padding: 3px 6px;
@@ -115,6 +114,7 @@ body {
     .cssDivYearSelect {
         max-height: 100vh;
         overflow-y: auto;
+        margin-top: 0;
     }
     .cssThumbnailImage {
         width: 45%;
