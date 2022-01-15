@@ -14,11 +14,13 @@ function saveFavourites() {
 function addNameToFavourites(name,year) {
     gvFavouritesObj[name] =year;
     saveFavourites();
+    // if yearFavs is active then this does nothing so no need to update thumbnails
 }
 
 function deleteNameFromFavourites(name) {
     delete gvFavouritesObj[name];
     saveFavourites();
+    if(yearButtonFavsSelected()) loadThumbnailsForYear(kFavsName);
 }
 
 function isFavourite(name) {
@@ -28,12 +30,12 @@ function isFavourite(name) {
 function updateFavouriteIconForStatus(isFavourite) {
     const img = document.getElementById('img-favourite');
     if(isFavourite) {
-        img.src = "img/heartFilled.png";
+        img.src = "img/filledHeart.png";
         img.alt = "Favourite";
         img.title = "Tap to unfavourite";
     } else
     {
-        img.src = "img/heartEmpty.png";
+        img.src = "img/emptyHeart.png";
         img.alt = "";
         img.title = "Tap to make favourite";
     }
@@ -58,30 +60,39 @@ function handleFavouriteClicked() {
     updateFavouriteIconForStatus(!isFav);
 }
 
+function exportFavourites() {
+    const data = JSON.stringify(gvFavouritesObj);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'homeMoviesFavourites.json';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(url);
+}
+function handleFavouritesFileElementChanged(element) {
+    if(element.files.length > 0) {
+        element.files[0].text().then(text => {
+            const favsOj = JSON.parse(String(text));
+            if(!!favsOj) {
+                for (const [key, value] of Object.entries(favsOj)) gvFavouritesObj[key] = value;
+                saveFavourites();
+                if(yearButtonFavsSelected()) loadThumbnailsForYear(kFavsName);
+            }
+        });
+    }
+}
 
-function createFavouritesMenu() {
-    const divtop = document.createElement('div');
-    divtop.className="dropdown";
-    const btn = document.createElement('button');
-    btn.className="btn btn-secondary dropdown-toggle";
-    btn.type="button";
-    btn.innerHTML = 'D';
-    divtop.appendChild(btn);
-    const ul = document.createElement('ul');
-    ul.className="dropdown-menu";
-    ul.style.zIndex = '1000';
-    const li1 = document.createElement('li');
-    const mi1 = document.createElement('a');
-    mi1.className="dropdown-item";
-    mi1.href="#";
-    mi1.innerText = 'Save ♥︎…'
-    mi1.setAttribute('download','');
-    mi1.id = 'a-downloadfavs';
-    li1.appendChild(mi1);
-    ul.appendChild(li1);
+function yearButtonFavsSelected() {
+    const divBtnGp = document.getElementById('btngp-yearselect');
+    const btns = Array.from(divBtnGp.getElementsByClassName('cssYearSelected'));
+    return btns.length > 0 && btns[0].getAttribute('data-year') === kFavsName;
+}
 
-    divtop.appendChild(ul);
-    return divtop;
+function displayFavouritesFileDialog() {
+    document.getElementById('fileElemFavourites').click();
 }
 
 

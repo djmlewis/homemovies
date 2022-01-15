@@ -60,6 +60,12 @@ function loadThumbnailsForYear(year) {
         const actualYear = year === kFavsName ? gvFavouritesObj[thumbName] : year;
         divThumbnails.appendChild(thumnNailDivForNameYear(thumbName, actualYear));
     });
+    if(year === kFavsName) {
+        const favsdive = document.createElement('div');
+        favsdive.className = 'cssFavsMessage';
+        favsdive.innerHTML = document.getElementById('div-favMessage').innerHTML;
+        divThumbnails.appendChild(favsdive);
+    }
     setTimeout(() => {handleDivVideoResize()}, 500);
     handleDivVideoResize();
 }
@@ -84,8 +90,8 @@ function handleYearClicked(ev) {
     clearYearButtonSelected();
     toggleYearBtnSelected(ev.target,true);
     const year = ev.target.getAttribute('data-year');
-    loadThumbnailsForYear(year);
     localStorage.setItem(ls_yearButtonName,year);
+    loadThumbnailsForYear(year);
 }
 
 function clearYearButtonSelected() {
@@ -144,24 +150,14 @@ function handleSwitchAutoplayClicked() {
     localStorage.setItem(ls_autoplay, checked ? "true" : 'false');
 }
 
-/*
-function handleDivVideoResize() {
-    const paddingBuffer = 125;//150;
-    const divThumbs = document.getElementById('div-thumbnailsouter');
-    const colThumbs = document.getElementById('col-thumbnails');
-    // videoHeight accpunts for whether year buttons sit on top or not
-    const offsetTop = divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
-    const divThumbsWidth = divThumbs.offsetWidth;
-    const windowWidth = window.innerWidth;
-    // ratio goes from 1.x (stacked) to 4.x (alongside)
-    if(windowWidth / divThumbsWidth > 2) {
-        //alongside
-        colThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
-        document.getElementById('btngp-yearselect').style.marginBottom = '150px';
-    } else {
-        // stacked
-        colThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
-        document.getElementById('btngp-yearselect').style.marginBottom = '4px';
+
+function handleDropdownItemClicked(itemID) {
+    switch (itemID) {
+        case 'savefavs':
+            exportFavourites();
+            break;
+        case 'loadfavs':
+            displayFavouritesFileDialog();
+            break;
     }
 }
-*/

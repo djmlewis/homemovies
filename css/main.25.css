@@ -13,6 +13,12 @@ body {
 /*    min-height: 100%;*/
 /*}*/
 
+.btn-dark {
+    color: #ffad00;
+    background-color: #0c0c0c;
+    border-color: #0c0c0c;
+}
+
 .hundredpc {
     height: 100%;
     /*100vh;*/
@@ -39,7 +45,13 @@ body {
 .cssSwitchAutoplay {
     color: #ffad00;
 }
-
+.cssFavsMessage {
+    color: grey;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: small;
+    text-align: center;
+    padding-top: 12px;
+}
 /* *** Initial settings for PHONE PORTRAIT *** */
 .cssColVideo {
     background-color: #0c0c0c;
@@ -74,7 +86,10 @@ body {
     max-height: 100vh;
     overflow-y: auto;
 }
-
+.cssPointerEventsAll {
+    cursor: pointer;
+    pointer-events: all;
+}
 .cssDivThumbnails {
     /*height: 100vh;*/
     /*max-height: 100vh;*/
@@ -101,14 +116,23 @@ body {
     background-color: #212121;
     color: #797979;
 }
-
+.cssColourSelected {
+    color: #ffad00;
+}
+.cssBackgroundColourSelected {
+    background-color: #ffad00;
+}
 .cssImgFavourite {
     cursor: pointer;
     pointer-events: all;
     max-height: 20px;
+    margin-right: 12px;
 }
 .cssImgShare {
     max-height: 20px;
+}
+.cssMiniImage {
+    max-height: 12px;
 }
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
