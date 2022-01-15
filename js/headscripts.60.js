@@ -63,7 +63,8 @@ function loadThumbnailsForYear(year) {
     if(year === kFavsName) {
         const favsdive = document.createElement('div');
         favsdive.className = 'cssFavsMessage';
-        favsdive.innerHTML = document.getElementById('div-favMessage').innerHTML;
+        favsdive.innerHTML = 'Use <img alt="" src = "img/sharerup1.png" class="cssMiniImage"> ' +
+            'menu under the video to export a list of these favourites to import on another device / browser';
         divThumbnails.appendChild(favsdive);
     }
     setTimeout(() => {handleDivVideoResize()}, 500);
