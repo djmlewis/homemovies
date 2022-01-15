@@ -58,4 +58,31 @@ function handleFavouriteClicked() {
     updateFavouriteIconForStatus(!isFav);
 }
 
+
+function createFavouritesMenu() {
+    const divtop = document.createElement('div');
+    divtop.className="dropdown";
+    const btn = document.createElement('button');
+    btn.className="btn btn-secondary dropdown-toggle";
+    btn.type="button";
+    btn.innerHTML = 'D';
+    divtop.appendChild(btn);
+    const ul = document.createElement('ul');
+    ul.className="dropdown-menu";
+    ul.style.zIndex = '1000';
+    const li1 = document.createElement('li');
+    const mi1 = document.createElement('a');
+    mi1.className="dropdown-item";
+    mi1.href="#";
+    mi1.innerText = 'Save ♥︎…'
+    mi1.setAttribute('download','');
+    mi1.id = 'a-downloadfavs';
+    li1.appendChild(mi1);
+    ul.appendChild(li1);
+
+    divtop.appendChild(ul);
+    return divtop;
+}
+
+
 loadFavourites();

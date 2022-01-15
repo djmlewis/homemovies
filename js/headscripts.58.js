@@ -34,6 +34,10 @@ function buildYearButtons() {
         btn.onclick = (ev)=>{handleYearClicked(ev)};
         divBtnGp.appendChild(btn);
     });
+    // add the import export favs btn
+    //divBtnGp.appendChild(createFavouritesMenu());
+
+    // set the selected year
     const btns = Array.from(divBtnGp.getElementsByClassName('cssYearBtn'));
     let prefBtn = btns[0];
     // select the last used if available or keep first button

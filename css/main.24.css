@@ -107,7 +107,9 @@ body {
     pointer-events: all;
     max-height: 20px;
 }
-
+.cssImgShare {
+    max-height: 20px;
+}
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
     .cssDivYearSelect {
