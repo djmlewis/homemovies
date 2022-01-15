@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.25.css">
+    <link rel="stylesheet" href="css/main.26.css">
 
     <!-- my scripts -->
     <script src="js/globals.5.js" defer></script>
@@ -53,13 +53,13 @@
                          title="Tap to make favourite"
                          alt="">
                     <div class="dropdown">
-                        <button class="btn btn-dark btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <button class="btn btn-dark btn-dark-yellow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                             <img src="img/sharerup1.png" alt="" class="cssImgShare">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><div id="a-savefavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('savefavs')"><span class="cssColourSelected">Export ♥︎</span></div></li>
+                            <li><div id="a-savefavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('savefavs')"><span class="cssColourSelected">Export ♥︎ list</span></div></li>
                             <li>
-                                <div id="a-loadfavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('loadfavs')"><span class="cssColourSelected">Import ♥︎ …</span></div>
+                                <div id="a-loadfavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('loadfavs')"><span class="cssColourSelected">Import ♥︎ list</span></div>
                                 <input type="file" id="fileElemFavourites"  accept=".json" style="display:none" onchange="handleFavouritesFileElementChanged(this)">
                             </li>
                         </ul>
