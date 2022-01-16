@@ -125,8 +125,8 @@ function handleThumbnailClicked(ev) {
 }
 
 function handleWindowResize() {
-    handleDivVideoResize();
-    setTimeout(()=>{handleDivVideoResize()},500);
+    clearTimeout(gvResizeTimer);
+    gvResizeTimer = setTimeout(()=>{handleDivVideoResize()},100);
 }
 
 function handleDivVideoResize() {

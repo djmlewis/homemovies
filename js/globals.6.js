@@ -3,3 +3,5 @@ const ls_favourites = "ls_favourites1";
 const ls_yearButtonName = "ls_yearButtonName";
 
 const kFavsName = '♥︎';
+
+let gvResizeTimer;
