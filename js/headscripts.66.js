@@ -153,7 +153,7 @@ function handleDivVideoResize() {
         colyears.style.height = innerheight + 'px';
     } else {
         // stacked
-        colyears.removeAttribute('height"');
+        colyears.style.height = 'auto';
         colthumbs.style.height = (innerheight - colyears.getBoundingClientRect().height - colvideo.getBoundingClientRect().height) + 'px';
     }
 }
