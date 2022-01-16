@@ -86,17 +86,15 @@ body {
 }
 
 .cssColThumbnails {
-    /*height: 100vh;*/
-    /*max-height: 100vh;*/
+    /* gets its height set specifically */
     overflow-y: hidden;
 }
 .cssDivThumbnails {
-    /*height: 100vh;*/
-    /*max-height: 100vh;*/
+    /* dont set its height so it can flex-shrink-1 to bunch thumbs */
+    cursor: auto;
     overflow-y: auto;
     /*margin-top: 2px;*/
     /*margin-bottom: 2px;*/
-    cursor: auto;
 }
 .cssDivYearSelect {
     /*max-height: none;*/
