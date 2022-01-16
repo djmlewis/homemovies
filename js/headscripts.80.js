@@ -25,7 +25,7 @@ function setupAutoplay() {
 
 function buildYearButtons() {
     const divYears = document.getElementById('div-years');
-    Object.keys(gvIndexMediaObj).forEach(yearName=>{
+    Object.keys(gvIndexMediaObj).sort().forEach(yearName=>{
         let btn = document.createElement('div');
         const favCSS = yearName === kFavsName ? ' cssYearBtnFavs' : '';
         btn.className = 'cssYearBtn cssYearUnselected' + favCSS;
