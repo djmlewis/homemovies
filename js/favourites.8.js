@@ -62,11 +62,11 @@ function handleFavouriteClicked() {
 
 function exportFavourites() {
     const data = JSON.stringify(gvFavouritesObj);
-    const blob = new Blob([data], { type: 'application/octet-stream' });
+    const blob = new Blob([data], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = url;
-    anchor.download = 'homeMoviesFavourites.hmfav';
+    anchor.download = 'homeMoviesFavourites.pdf';
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
