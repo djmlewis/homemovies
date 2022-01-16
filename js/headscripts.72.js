@@ -9,7 +9,7 @@ window.addEventListener('load', function () {
     //handle video being set resize
     //document.getElementById('div-video').addEventListener('resize',()=>handleDivVideoResize());
     window.addEventListener('resize',()=>handleWindowResize());
-    //handleDivVideoResize();
+    handleDivVideoResize();
 });
 
 function applySettingsAtStartup() {
