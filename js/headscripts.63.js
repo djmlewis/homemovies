@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function () {
     //handle video being set resize
     //document.getElementById('div-video').addEventListener('resize',()=>handleDivVideoResize());
-    window.addEventListener('resize',()=>handleDivVideoResize());
+    window.addEventListener('resize',()=>handleWindowResize());
     //handleDivVideoResize();
 });
 
@@ -122,6 +122,11 @@ function handleThumbnailClicked(ev) {
     document.getElementById('img-favourite').hidden = false;
     updateFavouriteIconForStatus(isFavourite(thumbName));
     //handleDivVideoResize();
+}
+
+function handleWindowResize() {
+    document.getElementById('div-thumbName').innerText =  window.innerHeight;
+    handleDivVideoResize();
 }
 
 function handleDivVideoResize() {
