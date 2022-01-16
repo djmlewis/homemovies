@@ -18,13 +18,17 @@ body {
     background-color: #0c0c0c;
     border-color: #0c0c0c;
 }
-
-.hundredpc {
-    height: 100%;
-    /*100vh;*/
-    max-height: 100%;
-    min-height: 100%;
+.cssPointerEventsAll {
+    cursor: pointer;
+    pointer-events: all;
 }
+
+/*.hundredpc {*/
+/*    height: 100%;*/
+/*    !*100vh;*!*/
+/*    max-height: 100%;*/
+/*    min-height: 100%;*/
+/*}*/
 
 .form-check-input:checked {
     background-color: #ffad00;
@@ -82,26 +86,22 @@ body {
 }
 
 .cssColThumbnails {
-    height: 100vh;
-    max-height: 100vh;
-    overflow-y: auto;
-}
-.cssPointerEventsAll {
-    cursor: pointer;
-    pointer-events: all;
+    /*height: 100vh;*/
+    /*max-height: 100vh;*/
+    overflow-y: hidden;
 }
 .cssDivThumbnails {
     /*height: 100vh;*/
     /*max-height: 100vh;*/
-    /*overflow-y: auto;*/
-    margin-top: 2px;
-    margin-bottom: 2px;
+    overflow-y: auto;
+    /*margin-top: 2px;*/
+    /*margin-bottom: 2px;*/
     cursor: auto;
 }
 .cssDivYearSelect {
-    max-height: none;
+    /*max-height: none;*/
     overflow: hidden;
-    padding-top: 6px;
+    /*padding-top: 6px;*/
 }
 .cssYearBtn {
     padding: 3px 6px;
@@ -137,9 +137,9 @@ body {
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
     .cssDivYearSelect {
-        max-height: 100vh;
+        /*max-height: 100vh;*/
         overflow-y: auto;
-        padding-top: 6px;
+        /*padding-top: 6px;*/
     }
     .cssThumbnailImage {
         width: 45%;
