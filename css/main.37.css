@@ -40,7 +40,7 @@ body {
     font-family: "Trebuchet MS", sans-serif;
     font-size: small;
     line-height: 1;
-    text-align: center;
+    text-align: justify;
     padding-top: 6px;
 }
 /* *** Initial settings for PHONE PORTRAIT *** */
@@ -114,6 +114,9 @@ body {
 }
 .cssImgShare {
     max-height: 20px;
+}
+.cssImgFavsMessage {
+    max-height: 12px;
 }
 .cssMiniImage {
     max-height: 12px;

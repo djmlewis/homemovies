@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.36.css">
+    <link rel="stylesheet" href="css/main.37.css">
 
     <!-- my scripts -->
     <script src="js/globals.6.js" defer></script>
@@ -52,21 +52,6 @@
                          onclick="handleFavouriteClicked()"
                          title="Tap to make favourite"
                          alt="">
-<!--
-                    <div class="d-flex flex-row flex-nowrap justify-content-end align-items-center">
-                        <div class="dropdown">
-                            <button class="btn btn-dark btn-dark-yellow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                <img src="img/sharerup1.png" alt="" class="cssImgShare">
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><div id="a-savefavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('savefavs')"><span class="cssColourSelected">Export ♥︎ list</span></div></li>
-                                <li>
-                                    <div id="a-loadfavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('loadfavs')"><span class="cssColourSelected">Import ♥︎ list</span></div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
--->
                 </div>
             </div>
         </div>
@@ -81,9 +66,14 @@
 
 <input type="file" id="fileElemFavourites"  accept=".json" style="display:none" onchange="handleFavouritesFileElementChanged(this)">
 <div id="div-favsbuttons" style="display:none">
+    <p class="cssFavsMessage">Tap
+    <img class="cssImgFavsMessage" src="img/emptyHeart.png" alt=""> / <img class="cssImgFavsMessage" src="img/filledHeart.png" alt="">
+    under the player to add / remove videos to this list.</p>
+    <div class="d-flex flex-row flex-nowrap justify-content-evenly">
     <button type="button" class="btn btn-warning btn-sm" onclick="handleDropdownItemClicked('savefavs')"><img src="img/sharerup1black.png" alt="" class="cssImgShare"> Export ♥︎ </button>
     <button type="button" class="btn btn-warning btn-sm"  onclick="handleDropdownItemClicked('loadfavs')"><img src="img/sharedownblack.png" alt="" class="cssImgShare"> Import ♥︎ </button>
-    <p class="cssFavsMessage">Tap buttons to export a list of these favourites to import on another device / browser. Imported favourites are merged with existing ones.
+    </div>
+    <p class="cssFavsMessage">Tap the buttons to export a list of these favourites for import to another device / browser. Imported favourites are merged with existing ones.
     On mobile devices only Safari can export easily - file appears in Recents or Downloads folder. On desktop browsers the exported file is saved in Downloads folder unless you change browser settings.</p>
 </div>
 
