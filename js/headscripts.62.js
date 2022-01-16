@@ -7,9 +7,9 @@ window.addEventListener('DOMContentLoaded', function () {
 // call these functions on page fully loaded
 window.addEventListener('load', function () {
     //handle video being set resize
-    document.getElementById('div-video').addEventListener('resize',()=>handleDivVideoResize());
+    //document.getElementById('div-video').addEventListener('resize',()=>handleDivVideoResize());
     window.addEventListener('resize',()=>handleDivVideoResize());
-    handleDivVideoResize();
+    //handleDivVideoResize();
 });
 
 function applySettingsAtStartup() {
@@ -67,8 +67,8 @@ function loadThumbnailsForYear(year) {
             'menu under the video to export a list of these favourites to import on another device / browser';
         divThumbnails.appendChild(favsdive);
     }
-    setTimeout(() => {handleDivVideoResize()}, 500);
-    handleDivVideoResize();
+    // setTimeout(() => {handleDivVideoResize()}, 500);
+    // handleDivVideoResize();
 }
 
 function thumnNailDivForNameYear(thumbName, year) {
@@ -121,7 +121,7 @@ function handleThumbnailClicked(ev) {
     divthumbname.setAttribute('data-year',year);
     document.getElementById('img-favourite').hidden = false;
     updateFavouriteIconForStatus(isFavourite(thumbName));
-    handleDivVideoResize();
+    //handleDivVideoResize();
 }
 
 function handleDivVideoResize() {
@@ -148,7 +148,7 @@ function handleDivVideoResize() {
         colyears.style.height = innerheight + 'px';
     } else {
         // stacked
-        colyears.style.height = 'auto';
+        colyears.removeAttribute('height"');
         colthumbs.style.height = (innerheight - colyears.getBoundingClientRect().height - colvideo.getBoundingClientRect().height) + 'px';
     }
 }
