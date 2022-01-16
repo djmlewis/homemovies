@@ -125,7 +125,7 @@ function handleThumbnailClicked(ev) {
 }
 
 function handleWindowResize() {
-    document.getElementById('div-thumbName').innerText =  window.innerHeight;
+    document.getElementById('div-thumbName').innerText =  window.innerHeight+'px';
     handleDivVideoResize();
 }
 
