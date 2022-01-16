@@ -151,10 +151,14 @@ function handleDivVideoResize() {
         //alongside
         colthumbs.style.height = innerheight + 'px';
         colyears.style.height = innerheight + 'px';
+        // divYears.style.overflowY = 'auto';
+        // colyears.style.overflowY = 'auto';
     } else {
         // stacked
-        colyears.style.height = 'auto';
         colthumbs.style.height = (innerheight - colyears.getBoundingClientRect().height - colvideo.getBoundingClientRect().height) + 'px';
+        colyears.style.height = 'auto';
+        // colyears.style.overflowY = 'hidden';
+        // divYears.style.overflowY = 'hidden';
     }
 }
 

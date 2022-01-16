@@ -98,7 +98,7 @@ body {
 }
 .cssDivYearSelect {
     /*max-height: none;*/
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*padding-top: 6px;*/
 }
 .cssYearBtn {
@@ -136,7 +136,7 @@ body {
 @media (min-width: 768px) {
     .cssDivYearSelect {
         /*max-height: 100vh;*/
-        overflow-y: auto;
+        /*overflow-y: auto;*/
         /*padding-top: 6px;*/
     }
     .cssThumbnailImage {
