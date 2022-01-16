@@ -19,7 +19,7 @@
     <script src="js/globals.5.js" defer></script>
     <script src="js/indexmedia.17.js" defer></script>
     <script src="js/favourites.6.js" defer></script>
-    <script src="js/headscripts.70.js" defer></script>
+    <script src="js/headscripts.71.js" defer></script>
 
 
 </head>
@@ -27,44 +27,46 @@
 <div class="container-fluid overflow-hidden">
     <div class="row overflow-hidden">
         <div id="col-video" class="col cssColVideo overflow-hidden">
-            <div class="d-flex flex-row flex-nowrap justify-content-between align-items-center px-2 cssVideoBottomDiv">
-                <div class="form-check form-switch overflow-hidden">
-                    <input class="form-check-input overflow-hidden mt-1" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
-                    <label class="form-check-label cssSwitchAutoplay overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video</label>
-                </div>
-                <div id="div-thumbName" class="cssDivThumbName"></div>
-                <div class="d-flex flex-row flex-nowrap justify-content-end align-items-center">
-                    <img hidden
-                         id="img-favourite"
-                         src="img/emptyHeart.png"
-                         class="cssImgFavourite"
-                         onclick="handleFavouriteClicked()"
-                         title="Tap to make favourite"
-                         alt="">
-                    <div class="dropdown">
-                        <button class="btn btn-dark btn-dark-yellow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            <img src="img/sharerup1.png" alt="" class="cssImgShare">
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><div id="a-savefavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('savefavs')"><span class="cssColourSelected">Export ♥︎ list</span></div></li>
-                            <li>
-                                <div id="a-loadfavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('loadfavs')"><span class="cssColourSelected">Import ♥︎ list</span></div>
-                                <input type="file" id="fileElemFavourites"  accept=".json" style="display:none" onchange="handleFavouritesFileElementChanged(this)">
-                            </li>
-                        </ul>
+            <div id="div-videoOuter">
+                <div class="d-flex flex-row flex-nowrap justify-content-between align-items-center px-2 cssVideoBottomDiv">
+                    <div class="form-check form-switch overflow-hidden">
+                        <input class="form-check-input overflow-hidden mt-1" type="checkbox" role="switch" id="switch-autoplay" checked onclick="handleSwitchAutoplayClicked()">
+                        <label class="form-check-label cssSwitchAutoplay overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay video</label>
+                    </div>
+                    <div id="div-thumbName" class="cssDivThumbName"></div>
+                    <div class="d-flex flex-row flex-nowrap justify-content-end align-items-center">
+                        <img hidden
+                             id="img-favourite"
+                             src="img/emptyHeart.png"
+                             class="cssImgFavourite"
+                             onclick="handleFavouriteClicked()"
+                             title="Tap to make favourite"
+                             alt="">
+                        <div class="dropdown">
+                            <button class="btn btn-dark btn-dark-yellow btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <img src="img/sharerup1.png" alt="" class="cssImgShare">
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><div id="a-savefavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('savefavs')"><span class="cssColourSelected">Export ♥︎ list</span></div></li>
+                                <li>
+                                    <div id="a-loadfavs" class="dropdown-item cssPointerEventsAll" onclick="handleDropdownItemClicked('loadfavs')"><span class="cssColourSelected">Import ♥︎ list</span></div>
+                                    <input type="file" id="fileElemFavourites"  accept=".json" style="display:none" onchange="handleFavouritesFileElementChanged(this)">
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="div-video" class="overflow-hidden ratio" style="--bs-aspect-ratio: 76%;">
-                <video  id="video-main"
-                        controls
-                        preload="auto"
-                        src = ''
-                        poster=""
-                        autoplay
-                        playsinline
-                        class="overflow-hidden"
-                ></video>
+                <div id="div-video" class="overflow-hidden ratio" style="--bs-aspect-ratio: 76%;">
+                    <video  id="video-main"
+                            controls
+                            preload="auto"
+                            src = ''
+                            poster=""
+                            autoplay
+                            playsinline
+                            class="overflow-hidden"
+                    ></video>
+                </div>
             </div>
         </div>
         <div id="col-years" class="col-md-1" style="overflow-y: auto; overflow-x: hidden;">
