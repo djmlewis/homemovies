@@ -63,12 +63,9 @@ function loadThumbnailsForYear(year) {
     if(year === kFavsName) {
         const favsdive = document.createElement('div');
         favsdive.className = 'cssFavsMessage';
-        favsdive.innerHTML = 'Use <img alt="" src = "img/sharerup1.png" class="cssMiniImage"> ' +
-            'menu under the video to export a list of these favourites to import on another device / browser';
+        favsdive.innerHTML = document.getElementById('div-favsbuttons').innerHTML;
         divThumbnails.appendChild(favsdive);
     }
-    // setTimeout(() => {handleDivVideoResize()}, 500);
-    // handleDivVideoResize();
 }
 
 function thumnNailDivForNameYear(thumbName, year) {
@@ -121,7 +118,6 @@ function handleThumbnailClicked(ev) {
     divthumbname.setAttribute('data-year',year);
     document.getElementById('img-favourite').hidden = false;
     updateFavouriteIconForStatus(isFavourite(thumbName));
-    //handleDivVideoResize();
 }
 
 function handleWindowResize() {
@@ -171,24 +167,4 @@ function handleDropdownItemClicked(itemID) {
             break;
     }
 }
-/*
-function handleDivVideoResize() {
-    const paddingBuffer = 175;//150;
-    const divThumbs = document.getElementById('div-thumbnailsouter');
-    const divYears = document.getElementById('div-years');
-    // videoHeight accounts for whether year buttons sit on top or not
-    const offsetTop = divYears.getBoundingClientRect().bottom;//divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
-    const divThumbsWidth = divThumbs.offsetWidth;
-    const windowWidth = window.innerWidth;
-    // ratio goes from 1.x (stacked) to 4.x (alongside)
-    if(windowWidth / divThumbsWidth > 2) {
-        //alongside
-        divThumbs.style.paddingBottom = (6+paddingBuffer)+'px';// (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
-        divYears.style.paddingBottom = paddingBuffer+'px';
-    } else {
-        // stacked
-        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
-        divYears.style.paddingBottom = '4px';
-    }
-}
-*/
+

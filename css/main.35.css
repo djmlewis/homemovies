@@ -53,8 +53,9 @@ body {
     color: grey;
     font-family: "Trebuchet MS", sans-serif;
     font-size: small;
+    line-height: 1;
     text-align: center;
-    padding-top: 12px;
+    padding-top: 6px;
 }
 /* *** Initial settings for PHONE PORTRAIT *** */
 .cssColVideo {
