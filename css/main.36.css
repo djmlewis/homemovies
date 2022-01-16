@@ -2,19 +2,12 @@ body {
     background-color: #212121;
     overflow: hidden;
     height: 100%;
-    /*100vh;*/
     max-height: 100%;
     min-height: 100%;
 }
-/*html {*/
-/*    height: 100%;*/
-/*    !*100vh;*!*/
-/*    max-height: 100%;*/
-/*    min-height: 100%;*/
-/*}*/
 
 .btn-dark-yellow {
-    color: #ffad00;
+    color: #ffc107;
     background-color: #0c0c0c;
     border-color: #0c0c0c;
 }
@@ -23,16 +16,9 @@ body {
     pointer-events: all;
 }
 
-/*.hundredpc {*/
-/*    height: 100%;*/
-/*    !*100vh;*!*/
-/*    max-height: 100%;*/
-/*    min-height: 100%;*/
-/*}*/
-
 .form-check-input:checked {
-    background-color: #ffad00;
-    border-color: #ffad00;
+    background-color: #ffc107;
+    border-color: #ffc107;
 }
 
 .cssDivThumbName, .cssDivThumbTitle {
@@ -47,7 +33,7 @@ body {
     color: #797979;
 }
 .cssSwitchAutoplay {
-    color: #ffad00;
+    color: #ffc107;
 }
 .cssFavsMessage {
     color: grey;
@@ -107,7 +93,7 @@ body {
     border-radius: 4px;
 }
 .cssYearSelected {
-    background-color: #ffad00;
+    background-color: #ffc107;
     color: black;
 }
 .cssYearUnselected {
@@ -115,10 +101,10 @@ body {
     color: #797979;
 }
 .cssColourSelected {
-    color: #ffad00;
+    color: #ffc107;
 }
 .cssBackgroundColourSelected {
-    background-color: #ffad00;
+    background-color: #ffc107;
 }
 .cssImgFavourite {
     cursor: pointer;
