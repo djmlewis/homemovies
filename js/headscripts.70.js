@@ -144,7 +144,7 @@ function handleDivVideoResize() {
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
 
-    document.getElementById('div-thumbName').innerText =  innerheight +' '+ divYears.getBoundingClientRect().height +' '+ divvideo.getBoundingClientRect().height;
+    document.getElementById('div-thumbName').innerText =  innerheight +' '+ divYears.getBoundingClientRect().height +' '+ colvideo.getBoundingClientRect().height;
 
 
     // ratio goes from 1.x (stacked) to 4.x (alongside)
@@ -156,7 +156,7 @@ function handleDivVideoResize() {
         // colyears.style.overflowY = 'auto';
     } else {
         // stacked
-        colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - divvideo.getBoundingClientRect().height) + 'px';
+        colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - colvideo.getBoundingClientRect().height) + 'px';
         colyears.style.height = 'auto';
         // colyears.style.overflowY = 'hidden';
         // divYears.style.overflowY = 'hidden';
