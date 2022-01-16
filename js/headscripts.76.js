@@ -130,37 +130,21 @@ function handleWindowResize() {
 }
 
 function handleDivVideoResize() {
-    const paddingBuffer = 175;//150;
-    const colvideo = document.getElementById('col-video');
-    const divvideo = document.getElementById('div-videoOuter');
     const colyears = document.getElementById('col-years');
     const colthumbs = document.getElementById('col-thumbnails');
     const innerheight = window.innerHeight;
-
-
-    const divThumbs = document.getElementById('div-thumbnailsouter');
+    // i dont trust reported col heights so have a special div video outer
+    const divvideoouter = document.getElementById('div-videoOuter');
     const divYears = document.getElementById('div-years');
-    // videoHeight accounts for whether year buttons sit on top or not
-    const offsetTop = divYears.getBoundingClientRect().bottom;//divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
-    const divThumbsWidth = divThumbs.offsetWidth;
-    const windowWidth = window.innerWidth;
-
-    document.getElementById('div-thumbName').innerText =  innerheight +' '+ divYears.getBoundingClientRect().height +' '+ divvideo.getBoundingClientRect().height;
-
-
-    // ratio goes from 1.x (stacked) to 4.x (alongside)
+    // document.getElementById('div-thumbName').innerText =  innerheight +' '+ divYears.getBoundingClientRect().height +' '+ divvideo.getBoundingClientRect().height;
     if(isLandscape()) {
         //alongside
         colthumbs.style.height = innerheight + 'px';
         colyears.style.height = innerheight + 'px';
-        // divYears.style.overflowY = 'auto';
-        // colyears.style.overflowY = 'auto';
     } else {
         // stacked
-        colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - divvideo.getBoundingClientRect().height) + 'px';
+        colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - divvideoouter.getBoundingClientRect().height) + 'px';
         colyears.style.height = 'auto';
-        // colyears.style.overflowY = 'hidden';
-        // divYears.style.overflowY = 'hidden';
     }
 }
 
