@@ -55,7 +55,7 @@ function loadThumbnailsForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     divThumbnails.innerHTML = '';
     const thumbNamesArray = year === kFavsName ? Object.keys(gvFavouritesObj) : gvIndexMediaObj[year];
-    thumbNamesArray.forEach(thumbName=>{
+    thumbNamesArray.sort().forEach(thumbName=>{
         // the year for the favs thumbName is the value of the thumbName key in gvFavouritesObj
         const actualYear = year === kFavsName ? gvFavouritesObj[thumbName] : year;
         divThumbnails.appendChild(thumnNailDivForNameYear(thumbName, actualYear));
