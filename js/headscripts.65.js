@@ -125,7 +125,6 @@ function handleThumbnailClicked(ev) {
 }
 
 function handleWindowResize() {
-    document.getElementById('div-thumbName').innerText =  window.innerHeight+'px';
     handleDivVideoResize();
 }
 
@@ -144,6 +143,7 @@ function handleDivVideoResize() {
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
 
+    document.getElementById('div-thumbName').innerText =  innerheight +' '+ colyears.getBoundingClientRect().height +' '+ colvideo.getBoundingClientRect().height;
 
 
     // ratio goes from 1.x (stacked) to 4.x (alongside)
