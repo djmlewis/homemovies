@@ -59,7 +59,9 @@ body {
 /* *** Initial settings for PHONE PORTRAIT *** */
 .cssColVideo {
     background-color: #0c0c0c;
-    padding-bottom: 4px;
+    /* no space to avpid calculation issues */
+    padding: 0;
+    margin: 0;
 }
 .cssVideoBottomDiv {
     /*max-height: 21px;*/
