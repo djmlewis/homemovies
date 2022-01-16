@@ -51,7 +51,7 @@ function handleFavouriteClicked() {
     {
         addNameToFavourites(thumbName,divThumbName.getAttribute('data-year'));
     }
-    const selectedYearDiv = document.getElementById('btngp-yearselect').getElementsByClassName('cssYearSelected').item(0);
+    const selectedYearDiv = document.getElementById('div-years').getElementsByClassName('cssYearSelected').item(0);
     // refresh the Favs thumbs if displayed
     if(selectedYearDiv && selectedYearDiv.innerText === kFavsName) {
         loadThumbnailsForYear(kFavsName);
@@ -86,8 +86,8 @@ function handleFavouritesFileElementChanged(element) {
 }
 
 function yearButtonFavsSelected() {
-    const divBtnGp = document.getElementById('btngp-yearselect');
-    const btns = Array.from(divBtnGp.getElementsByClassName('cssYearSelected'));
+    const divYears = document.getElementById('div-years');
+    const btns = Array.from(divYears.getElementsByClassName('cssYearSelected'));
     return btns.length > 0 && btns[0].getAttribute('data-year') === kFavsName;
 }
 

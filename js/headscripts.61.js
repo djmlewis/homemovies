@@ -24,7 +24,7 @@ function setupAutoplay() {
 }
 
 function buildYearButtons() {
-    const divBtnGp = document.getElementById('btngp-yearselect');
+    const divYears = document.getElementById('div-years');
     Object.keys(gvIndexMediaObj).forEach(yearName=>{
         let btn = document.createElement('div');
         const favCSS = yearName === kFavsName ? ' cssYearBtnFavs' : '';
@@ -32,13 +32,13 @@ function buildYearButtons() {
         btn.innerText = yearName;
         btn.setAttribute('data-year',yearName);
         btn.onclick = (ev)=>{handleYearClicked(ev)};
-        divBtnGp.appendChild(btn);
+        divYears.appendChild(btn);
     });
     // add the import export favs btn
-    //divBtnGp.appendChild(createFavouritesMenu());
+    //divYears.appendChild(createFavouritesMenu());
 
     // set the selected year
-    const btns = Array.from(divBtnGp.getElementsByClassName('cssYearBtn'));
+    const btns = Array.from(divYears.getElementsByClassName('cssYearBtn'));
     let prefBtn = btns[0];
     // select the last used if available or keep first button
     const savedYear = localStorage.getItem(ls_yearButtonName);
@@ -96,7 +96,7 @@ function handleYearClicked(ev) {
 }
 
 function clearYearButtonSelected() {
-    for(const btn of document.getElementById('btngp-yearselect').getElementsByClassName('cssYearBtn')) toggleYearBtnSelected(btn,false);
+    for(const btn of document.getElementById('div-years').getElementsByClassName('cssYearBtn')) toggleYearBtnSelected(btn,false);
 }
 
 function toggleYearBtnSelected(btn,selected) {
@@ -126,23 +126,37 @@ function handleThumbnailClicked(ev) {
 
 function handleDivVideoResize() {
     const paddingBuffer = 175;//150;
+    const colvideo = document.getElementById('col-video');
+    const colyears = document.getElementById('col-years');
+    const colthumbs = document.getElementById('col-thumbnails');
+    const innerheight = window.innerHeight;
+
+
     const divThumbs = document.getElementById('div-thumbnailsouter');
-    const divYears = document.getElementById('btngp-yearselect');
+    const divYears = document.getElementById('div-years');
     // videoHeight accounts for whether year buttons sit on top or not
     const offsetTop = divYears.getBoundingClientRect().bottom;//divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
     const divThumbsWidth = divThumbs.offsetWidth;
     const windowWidth = window.innerWidth;
+
+
+
     // ratio goes from 1.x (stacked) to 4.x (alongside)
-    if(windowWidth / divThumbsWidth > 2) {
+    if(isLandscape()) {
         //alongside
-        divThumbs.style.paddingBottom = (6+paddingBuffer)+'px';// (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
-        divYears.style.paddingBottom = paddingBuffer+'px';
+        colthumbs.style.height = innerheight + 'px';
+        colyears.style.height = innerheight + 'px';
     } else {
         // stacked
-        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
-        divYears.style.paddingBottom = '4px';
+        colyears.style.height = 'auto';
+        colthumbs.style.height = (innerheight - colyears.getBoundingClientRect().height - colvideo.getBoundingClientRect().height) + 'px';
     }
 }
+
+function isLandscape() {
+    return window.innerWidth / document.getElementById('col-thumbnails').getBoundingClientRect().width > 2;
+}
+
 
 function handleSwitchAutoplayClicked() {
     const checked = document.getElementById('switch-autoplay').checked;
@@ -162,3 +176,24 @@ function handleDropdownItemClicked(itemID) {
             break;
     }
 }
+/*
+function handleDivVideoResize() {
+    const paddingBuffer = 175;//150;
+    const divThumbs = document.getElementById('div-thumbnailsouter');
+    const divYears = document.getElementById('div-years');
+    // videoHeight accounts for whether year buttons sit on top or not
+    const offsetTop = divYears.getBoundingClientRect().bottom;//divThumbs.getBoundingClientRect().top;//document.getElementById('div-video') + window.visualViewport.offsetTop;
+    const divThumbsWidth = divThumbs.offsetWidth;
+    const windowWidth = window.innerWidth;
+    // ratio goes from 1.x (stacked) to 4.x (alongside)
+    if(windowWidth / divThumbsWidth > 2) {
+        //alongside
+        divThumbs.style.paddingBottom = (6+paddingBuffer)+'px';// (offsetTop+paddingBuffer)+'px';//window.visualViewport.offsetTop+
+        divYears.style.paddingBottom = paddingBuffer+'px';
+    } else {
+        // stacked
+        divThumbs.style.paddingBottom = (offsetTop+paddingBuffer)+'px';
+        divYears.style.paddingBottom = '4px';
+    }
+}
+*/
