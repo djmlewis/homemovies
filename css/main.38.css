@@ -21,17 +21,16 @@ body {
     border-color: #ffc107;
 }
 
-.cssDivThumbName, .cssDivThumbTitle {
+.cssDivThumbName {
     font-family: "Trebuchet MS",sans-serif;
     font-size: small;
-}
-.cssDivThumbName {
-    color: #797979;
-}
-.cssDivThumbTitle {
     text-align: center;
-    color: #797979;
+    color: whitesmoke;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 .cssSwitchAutoplay {
     color: #ffc107;
 }

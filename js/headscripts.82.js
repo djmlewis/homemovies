@@ -113,11 +113,16 @@ function handleThumbnailClicked(ev) {
     const thumbName = ev.target.getAttribute('data-thumbName');
     const divthumbname = document.getElementById('div-thumbName');
     const year = ev.target.getAttribute('data-year');
-    divthumbname.innerText = year+':'+thumbName;
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
+    setThumbnameForID(divthumbname,thumbName,year);
     document.getElementById('img-favourite').hidden = false;
     updateFavouriteIconForStatus(isFavourite(thumbName));
+}
+
+function setThumbnameForID(divthumbname, thumbName,year) {
+    if(!!gvTitlesObj[thumbName]) divthumbname.innerText = gvTitlesObj[thumbName];
+    else divthumbname.innerText = year+':'+thumbName;
 }
 
 function handleWindowResize() {
