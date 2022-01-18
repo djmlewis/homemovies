@@ -6,8 +6,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 // call these functions on page fully loaded
 window.addEventListener('load', function () {
-    //handle video being set resize
-    //document.getElementById('div-video').addEventListener('resize',()=>handleDivVideoResize());
     window.addEventListener('resize',()=>handleWindowResize());
     handleDivVideoResize();
 });
@@ -34,9 +32,7 @@ function buildYearButtons() {
         btn.onclick = (ev)=>{handleYearClicked(ev)};
         divYears.appendChild(btn);
     });
-    // add the import export favs btn
-    //divYears.appendChild(createFavouritesMenu());
-
+    addIndexYearButton(divYears);
     // set the selected year
     const btns = Array.from(divYears.getElementsByClassName('cssYearBtn'));
     let prefBtn = btns[0];
@@ -51,20 +47,33 @@ function buildYearButtons() {
     loadThumbnailsForYear(prefBtn.getAttribute('data-year'));
 }
 
+function addIndexYearButton(divYears) {
+    let btn = document.createElement('div');
+    btn.className = 'cssYearBtn cssYearUnselected';
+    btn.innerText = kTitlesIndexName;
+    btn.setAttribute('data-year',kTitlesIndexName);
+    btn.onclick = (ev)=>{handleYearClicked(ev)};
+    divYears.appendChild(btn);
+}
+
 function loadThumbnailsForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     divThumbnails.innerHTML = '';
-    const thumbNamesArray = year === kFavsName ? Object.keys(gvFavouritesObj) : gvIndexMediaObj[year];
-    thumbNamesArray.sort().forEach(thumbName=>{
-        // the year for the favs thumbName is the value of the thumbName key in gvFavouritesObj
-        const actualYear = year === kFavsName ? gvFavouritesObj[thumbName] : year;
-        divThumbnails.appendChild(thumnNailDivForNameYear(thumbName, actualYear));
-    });
-    if(year === kFavsName) {
-        const favsdive = document.createElement('div');
-        favsdive.className = 'cssFavsMessage';
-        favsdive.innerHTML = document.getElementById('div-favsbuttons').innerHTML;
-        divThumbnails.appendChild(favsdive);
+    if(year === kTitlesIndexName) {
+        divThumbnails.innerHTML = gvIndexHTML;
+    } else {
+        const thumbNamesArray = year === kFavsName ? Object.keys(gvFavouritesObj) : gvIndexMediaObj[year];
+        thumbNamesArray.sort().forEach(thumbName => {
+            // the year for the favs thumbName is the value of the thumbName key in gvFavouritesObj
+            const actualYear = year === kFavsName ? gvFavouritesObj[thumbName] : year;
+            divThumbnails.appendChild(thumnNailDivForNameYear(thumbName, actualYear));
+        });
+        if (year === kFavsName) {
+            const favsdiv = document.createElement('div');
+            favsdiv.className = 'cssFavsMessage';
+            favsdiv.innerHTML = document.getElementById('div-favsbuttons').innerHTML;
+            divThumbnails.appendChild(favsdiv);
+        }
     }
 }
 
@@ -78,6 +87,7 @@ function thumnNailDivForNameYear(thumbName, year) {
     img.setAttribute('data-year',year);
     img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
     img.setAttribute('data-mpegpath','media/mpegs/'+year+'/'+thumbName+'.mp4');
+    //img.onclick = (ev)=>{handleThumbnailClicked(ev)};
     img.onclick = (ev)=>{handleThumbnailClicked(ev)};
     // img.onload = ()=>{handleDivVideoResize()};
     imgdiv.appendChild(img);
@@ -107,12 +117,15 @@ function toggleYearBtnSelected(btn,selected) {
 }
 
 function handleThumbnailClicked(ev) {
+    loadVideoFromThumbnailObj(ev.target);
+}
+function loadVideoFromThumbnailObj(thumbnail) {
     const videoMain = document.getElementById('video-main');
-    videoMain.poster = ev.target.getAttribute('data-jpegpath');
-    videoMain.src = ev.target.getAttribute('data-mpegpath');
-    const thumbName = ev.target.getAttribute('data-thumbName');
+    videoMain.poster = thumbnail.getAttribute('data-jpegpath');
+    videoMain.src = thumbnail.getAttribute('data-mpegpath');
+    const thumbName = thumbnail.getAttribute('data-thumbName');
     const divthumbname = document.getElementById('div-thumbName');
-    const year = ev.target.getAttribute('data-year');
+    const year = thumbnail.getAttribute('data-year');
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
     setThumbnameForID(divthumbname,thumbName,year);
@@ -173,3 +186,25 @@ function handleDropdownItemClicked(itemID) {
     }
 }
 
+function handleIndexClicked(row) {
+    loadVideoFromThumbnailObj(row);
+}
+
+function searchIndex() {
+    const searchStr = document.getElementById("input-searchlegend").value.toLowerCase();
+    if (searchStr.length > 0) {
+        Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexYearHeader')).forEach(para=>{
+            para.hidden = true;
+        });
+        Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexRow')).forEach(para=>{
+            para.hidden = para.innerText.toLowerCase().includes(searchStr) === false;
+        });
+    } else clearSearchIndex();
+}
+
+function clearSearchIndex() {
+    document.getElementById("input-searchlegend").value = '';
+    Array.from(document.getElementById("div-indexRows").children).forEach(para=>{
+        para.hidden = false;
+    });
+}

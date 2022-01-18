@@ -1,3 +1,8 @@
+:root {
+    --colour-selected: #ffc107;
+}
+
+
 body {
     background-color: #212121;
     overflow: hidden;
@@ -7,7 +12,8 @@ body {
 }
 
 .btn-dark-yellow {
-    color: #ffc107;
+    color: var(--colour-selected,var(--colour-selected,#ffc107));
+
     background-color: #0c0c0c;
     border-color: #0c0c0c;
 }
@@ -17,8 +23,8 @@ body {
 }
 
 .form-check-input:checked {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: var(--colour-selected,#ffc107);
+    border-color: var(--colour-selected,#ffc107);
 }
 
 .cssDivThumbName {
@@ -31,8 +37,48 @@ body {
     white-space: nowrap;
 }
 
+.cssIndexYearHeader {
+    font-family: "Trebuchet MS",sans-serif;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cssIndexYearHeader + .cssIndexYearHeader {
+    display: none;
+}
+
+.cssIndexYearHeader {
+    width: 100%;
+    padding: 2px 0;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    background-color: #c99804;
+    color: black;
+    pointer-events: none;
+    cursor: auto;
+    border-radius: 2px;
+}
+.cssIndexRow {
+    font-size: medium;
+    text-align: left;
+    color: whitesmoke;
+    pointer-events: all;
+    cursor: pointer;
+    line-height: 1;
+    padding: 10px 6px;
+    border-radius: 4px;
+}
+.cssIndexRow:nth-child(even){
+    background:#313131;
+}
+.cssDivIndexSearch {
+    background-color: #212121;
+    color: whitesmoke;
+}
+
 .cssSwitchAutoplay {
-    color: #ffc107;
+    color: var(--colour-selected,#ffc107);
 }
 .cssFavsMessage {
     color: grey;
@@ -92,7 +138,7 @@ body {
     border-radius: 4px;
 }
 .cssYearSelected {
-    background-color: #ffc107;
+    background-color: var(--colour-selected,#ffc107);
     color: black;
 }
 .cssYearUnselected {
@@ -100,10 +146,10 @@ body {
     color: #797979;
 }
 .cssColourSelected {
-    color: #ffc107;
+    color: var(--colour-selected,#ffc107);
 }
 .cssBackgroundColourSelected {
-    background-color: #ffc107;
+    background-color: var(--colour-selected,#ffc107);
 }
 .cssImgFavourite {
     cursor: pointer;
@@ -122,14 +168,8 @@ body {
 }
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
-    .cssDivYearSelect {
-        /*max-height: 100vh;*/
-        /*overflow-y: auto;*/
-        /*padding-top: 6px;*/
-    }
     .cssThumbnailImage {
         width: 45%;
         max-width: 48%;
     }
-
 }
