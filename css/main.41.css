@@ -69,9 +69,19 @@ body {
     padding: 10px 6px;
     border-radius: 4px;
 }
-.cssIndexRow:nth-child(even){
+.cssBanding:nth-child(even){
     background:#313131;
 }
+
+.cssParaOdd {
+    background-color: #212121;!important;
+}
+.cssParaEven {
+    background-color: #313131;!important;
+}
+
+
+
 .cssDivIndexSearch {
     background-color: #212121;
     color: whitesmoke;
@@ -168,6 +178,7 @@ body {
 .cssMiniImage {
     max-height: 12px;
 }
+
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 768px) {
     .cssThumbnailImage {

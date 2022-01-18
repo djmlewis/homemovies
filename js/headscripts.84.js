@@ -196,15 +196,32 @@ function searchIndex() {
         Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexYearHeader')).forEach(para=>{
             para.hidden = true;
         });
-        Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexRow')).forEach(para=>{
-            para.hidden = para.innerText.toLowerCase().includes(searchStr) === false;
+        let counter = 1;
+        Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexRow')).forEach((para)=>{
+            const found = para.innerText.toLowerCase().includes(searchStr) === true;
+            para.hidden = !found;
+            para.classList.remove('cssBanding');
+            if(counter % 2 === 0) {
+                para.classList.remove('cssParaOdd');
+                para.classList.add('cssParaEven');
+            } else {
+                para.classList.add('cssParaOdd');
+                para.classList.remove('cssParaEven');
+            }
+            if(found) counter++;
         });
     } else clearSearchIndex();
 }
 
 function clearSearchIndex() {
     document.getElementById("input-searchlegend").value = '';
-    Array.from(document.getElementById("div-indexRows").children).forEach(para=>{
+    Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexYearHeader')).forEach(para=>{
         para.hidden = false;
+    });
+    Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexRow')).forEach(para=>{
+        para.classList.add('cssBanding');
+        para.hidden = false;
+        para.classList.remove('cssParaOdd');
+        para.classList.remove('cssParaEven');
     });
 }
