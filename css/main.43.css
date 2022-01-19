@@ -11,7 +11,7 @@ body {
     min-height: 100%;
 }
 
-.btn-dark-yellow,.btn-dark-yellow:focus {
+.btn-dark-yellow,.btn-dark-yellow:focus, .btn-dark-yellow:active, .btn-dark-yellow.active {
     color: var(--colour-selected,var(--colour-selected,#ffc107));
     background-color: #0c0c0c;
     border-color: #0c0c0c;
