@@ -290,6 +290,7 @@ let gvTitlesObj = {
 "T30-06" : "Mfolozi & Hluluhwe Game parks - safaris, S. Africa",
 "T30-07" : "St Lucia Estuary boat trip, S. Africa",
 "T30-08" : "Dave body boarding, Durban beach, S. Africa",
+"T30e-01" : "Dave & Dad playing cricket in garden, Beacon Way",
 "T31_32-01" : "Rose at Boudhanath stupa, Kathmandu, Nepal",
 "T31_32-02" : "Rose at Swayambhu stupa, Kathmandu, Nepal",
 "T31_32-03" : "Rose at Pushpatinath Temple, Kathmandu, Nepal",
@@ -355,6 +356,7 @@ let gvTitlesObj = {
 "T35i-14" : "Elephant, Thanda, S. Africa",
 "T35ii-01" : "Dave, Rose & Cleona torchlight skiing, Trysil, Norway",
 "T35ii-02" : "Dave, Rose Cleona Husky Dog sledding, Trysil, Norway",
+"T35ii-03" : "Dave, Rose Cleona ski jumping, Trysil, Norway",
 "2010-01" : "Dave walking with cheetahs, Sanbona, S. Africa",
 "T1_6_91-01" : "Rose first appearance",
 "T1_6_91-02" : "Rose being fed",
@@ -436,5 +438,8 @@ let gvTitlesObj = {
 "GAL-19" : "Bartolome, Galapagos",
 "GAL-20" : "Snorkelling with penguins, Bartolome, Galapagos",
 "GAL-21" : "Sharks & rays, land iguanas, Bartolome, Galapagos",
-"GAL-22" : "Stormy petrels, storks, Bartolome, Galapagos"
+"GAL-22" : "Stormy petrels, storks, Bartolome, Galapagos",
+"T2008-01" : "Rose & Grace, Iguacu Falls, Brazil",
+"2015-01 rosegraduationbsc" : "Rose BSc Graduation, Nottingham University, 2015",
+"2017-01 hobbiesailing" : "Dave helming Hobbie, Turkey, 2017"
 };

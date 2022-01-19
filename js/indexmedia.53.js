@@ -394,6 +394,7 @@ let gvIndexMediaObj =
         'T30-06',
         'T30-07',
         'T30-08',
+        'T30e-01',
         'T31_32-01',
         'T31_32-02',
         'T31_32-03',
@@ -468,6 +469,7 @@ let gvIndexMediaObj =
         'T35i-14',
         'T35ii-01',
         'T35ii-02',
+        'T35ii-03',
         'TGAL-01',
         'TGAL-02',
         'TGAL-03',
@@ -491,8 +493,18 @@ let gvIndexMediaObj =
         'TGAL-21',
         'TGAL-22'
       ],
+     '2008' : 
+      [
+        'T2008-01',
+        'T2008-02'
+      ],
      '2010' : 
       [
         '2010-01'
+      ],
+     'Recent' : 
+      [
+        '2015-01 rosegraduationbsc',
+        '2017-01 hobbiesailing'
       ]
 };
