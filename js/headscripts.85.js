@@ -7,6 +7,9 @@ window.addEventListener('DOMContentLoaded', function () {
 // call these functions on page fully loaded
 window.addEventListener('load', function () {
     window.addEventListener('resize',()=>handleWindowResize());
+    const year = localStorage.getItem(ls_yearButtonName);
+    const hideBtn = !isLandscape() || year === kFavsName || year === kTitlesIndexName;
+    document.getElementById('btn-ThumbsIndex').hidden = hideBtn;
     handleDivVideoResize();
 });
 
@@ -56,12 +59,43 @@ function addIndexYearButton(divYears) {
     divYears.appendChild(btn);
 }
 
+function loadIndexForYear(year) {
+    const divThumbnails = document.getElementById('div-thumbnailsouter');
+    divThumbnails.innerHTML = gvIndexHTML;
+    document.getElementById('div-indexSearch').hidden = true;
+    filterIndexByYear(year)
+}
+
+function filterIndexByYear(year) {
+    const divIndexRows = document.getElementById("div-indexRows");
+    Array.from(divIndexRows.getElementsByClassName('cssIndexYearHeader')).forEach(para=>{para.hidden = true;});
+    let counter = 1;
+    Array.from(divIndexRows.getElementsByClassName('cssIndexRow')).forEach((para)=>{
+        const found = para.getAttribute('data-year').includes(year) === true;
+        para.hidden = !found;
+        para.classList.remove('cssBanding');
+        if(counter % 2 === 0) {
+            para.classList.remove('cssParaOdd');
+            para.classList.add('cssParaEven');
+        } else {
+            para.classList.add('cssParaOdd');
+            para.classList.remove('cssParaEven');
+        }
+        if(found) counter++;
+    });
+}
+
 function loadThumbnailsForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     divThumbnails.innerHTML = '';
+    const btnIndexThumbs = document.getElementById('btn-ThumbsIndex');
+    btnIndexThumbs.innerText = 'Show Titles';
+    btnIndexThumbs.hidden = true;
     if(year === kTitlesIndexName) {
+        btnIndexThumbs.hidden = true;
         divThumbnails.innerHTML = gvIndexHTML;
     } else {
+        btnIndexThumbs.hidden = !isLandscape() || year === kFavsName;
         const thumbNamesArray = year === kFavsName ? Object.keys(gvFavouritesObj) : gvIndexMediaObj[year];
         thumbNamesArray.sort().forEach(thumbName => {
             // the year for the favs thumbName is the value of the thumbName key in gvFavouritesObj
@@ -150,15 +184,16 @@ function handleDivVideoResize() {
     // i dont trust reported col heights so have a special div video outer
     const divvideoouter = document.getElementById('div-videoOuter');
     const divYears = document.getElementById('div-years');
-    // document.getElementById('div-thumbName').innerText =  innerheight +' '+ divYears.getBoundingClientRect().height +' '+ divvideo.getBoundingClientRect().height;
     if(isLandscape()) {
         //alongside
         colthumbs.style.height = innerheight + 'px';
         colyears.style.height = innerheight + 'px';
+        document.getElementById('btn-ThumbsIndex').hidden = indexIsSelectedYear() || favsIsSelectedYear();
     } else {
         // stacked
         colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - divvideoouter.getBoundingClientRect().height) + 'px';
         colyears.style.height = 'auto';
+        document.getElementById('btn-ThumbsIndex').hidden = true;
     }
 }
 
@@ -190,14 +225,13 @@ function handleIndexClicked(row) {
     loadVideoFromThumbnailObj(row);
 }
 
-function searchIndex() {
+function searchIndexFromSearchInput() {
     const searchStr = document.getElementById("input-searchlegend").value.toLowerCase();
+    const divIndexRows = document.getElementById("div-indexRows");
     if (searchStr.length > 0) {
-        Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexYearHeader')).forEach(para=>{
-            para.hidden = true;
-        });
+        Array.from(divIndexRows.getElementsByClassName('cssIndexYearHeader')).forEach(para=>{para.hidden = true;});
         let counter = 1;
-        Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexRow')).forEach((para)=>{
+        Array.from(divIndexRows.getElementsByClassName('cssIndexRow')).forEach((para)=>{
             const found = para.innerText.toLowerCase().includes(searchStr) === true;
             para.hidden = !found;
             para.classList.remove('cssBanding');
@@ -224,4 +258,25 @@ function clearSearchIndex() {
         para.classList.remove('cssParaOdd');
         para.classList.remove('cssParaEven');
     });
+}
+
+function toggleIndexThumbs(btn) {
+    const year = localStorage.getItem(ls_yearButtonName);
+    if(btn.innerText.includes('Titles')) {
+        btn.innerText = 'Show Thumbnails';
+        loadIndexForYear(year);
+    } else {
+        btn.innerText = 'Show Titles';
+        loadThumbnailsForYear(year);
+    }
+}
+
+function selectedYearButtonIsNamed(name) {
+    const divYears = document.getElementById('div-years');
+    const btns = Array.from(divYears.getElementsByClassName('cssYearSelected'));
+    return btns.length > 0 && btns[0].getAttribute('data-year') === name;
+}
+
+function indexIsSelectedYear() {
+    return selectedYearButtonIsNamed(kTitlesIndexName);
 }

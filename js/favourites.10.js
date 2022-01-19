@@ -20,7 +20,7 @@ function addNameToFavourites(name,year) {
 function deleteNameFromFavourites(name) {
     delete gvFavouritesObj[name];
     saveFavourites();
-    if(yearButtonFavsSelected()) loadThumbnailsForYear(kFavsName);
+    if(favsIsSelectedYear()) loadThumbnailsForYear(kFavsName);
 }
 
 function isFavourite(name) {
@@ -79,16 +79,14 @@ function handleFavouritesFileElementChanged(element) {
             if(!!favsOj) {
                 for (const [key, value] of Object.entries(favsOj)) gvFavouritesObj[key] = value;
                 saveFavourites();
-                if(yearButtonFavsSelected()) loadThumbnailsForYear(kFavsName);
+                if(favsIsSelectedYear()) loadThumbnailsForYear(kFavsName);
             }
         });
     }
 }
 
-function yearButtonFavsSelected() {
-    const divYears = document.getElementById('div-years');
-    const btns = Array.from(divYears.getElementsByClassName('cssYearSelected'));
-    return btns.length > 0 && btns[0].getAttribute('data-year') === kFavsName;
+function favsIsSelectedYear() {
+    return selectedYearButtonIsNamed(kFavsName);
 }
 
 function displayFavouritesFileDialog() {
