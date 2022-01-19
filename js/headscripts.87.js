@@ -62,6 +62,7 @@ function addIndexYearButton(divYears) {
 function loadIndexForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
     divThumbnails.innerHTML = gvIndexHTML;
+    divThumbnails.scrollTop = 0;
     document.getElementById('div-indexSearch').hidden = true;
     filterIndexByYear(year)
 }
@@ -109,6 +110,7 @@ function loadThumbnailsForYear(year) {
             divThumbnails.appendChild(favsdiv);
         }
     }
+    divThumbnails.scrollTop = 0;
 }
 
 function thumnNailDivForNameYear(thumbName, year) {
