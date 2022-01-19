@@ -8,8 +8,8 @@ window.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function () {
     window.addEventListener('resize',()=>handleWindowResize());
     const year = localStorage.getItem(ls_yearButtonName);
-    const hideBtn = !isLandscape() || year === kFavsName || year === kTitlesIndexName;
-    document.getElementById('btn-ThumbsIndex').hidden = hideBtn;
+   // const hideBtn = /*!isLandscape() || */ year === kFavsName || year === kTitlesIndexName;
+    document.getElementById('btn-ThumbsIndex').hidden = year === kFavsName || year === kTitlesIndexName;
     handleDivVideoResize();
 });
 
@@ -95,7 +95,7 @@ function loadThumbnailsForYear(year) {
         btnIndexThumbs.hidden = true;
         divThumbnails.innerHTML = gvIndexHTML;
     } else {
-        btnIndexThumbs.hidden = !isLandscape() || year === kFavsName;
+        btnIndexThumbs.hidden = year === kFavsName;//!isLandscape() || year === kFavsName;
         const thumbNamesArray = year === kFavsName ? Object.keys(gvFavouritesObj) : gvIndexMediaObj[year];
         thumbNamesArray.sort().forEach(thumbName => {
             // the year for the favs thumbName is the value of the thumbName key in gvFavouritesObj
@@ -184,16 +184,17 @@ function handleDivVideoResize() {
     // i dont trust reported col heights so have a special div video outer
     const divvideoouter = document.getElementById('div-videoOuter');
     const divYears = document.getElementById('div-years');
+    document.getElementById('btn-ThumbsIndex').hidden = indexIsSelectedYear() || favsIsSelectedYear();
     if(isLandscape()) {
         //alongside
         colthumbs.style.height = innerheight + 'px';
         colyears.style.height = innerheight + 'px';
-        document.getElementById('btn-ThumbsIndex').hidden = indexIsSelectedYear() || favsIsSelectedYear();
+        //document.getElementById('btn-ThumbsIndex').hidden = indexIsSelectedYear() || favsIsSelectedYear();
     } else {
         // stacked
         colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - divvideoouter.getBoundingClientRect().height) + 'px';
         colyears.style.height = 'auto';
-        document.getElementById('btn-ThumbsIndex').hidden = true;
+        //document.getElementById('btn-ThumbsIndex').hidden = true;
     }
 }
 
