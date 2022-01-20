@@ -126,6 +126,7 @@ body {
     width: 30%;
     max-width: 31%;
     margin: 1px;
+    --bs-aspect-ratio: 76%;
 }
 
 .cssColThumbnails {

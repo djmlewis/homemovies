@@ -117,7 +117,7 @@ function thumnNailDivForNameYear(thumbName, year) {
     let imgdiv = document.createElement('div');
     let img = document.createElement('img');
     img.style.width = '100%';
-    imgdiv.className = 'cssThumbnailImage';//align-self-baseline
+    imgdiv.className = 'cssThumbnailImage ratio';//align-self-baseline
     img.src = 'media/jpegs/'+year+'/'+thumbName+'.jpg';
     img.setAttribute('data-thumbName',thumbName);
     img.setAttribute('data-year',year);

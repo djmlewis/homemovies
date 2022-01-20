@@ -504,7 +504,12 @@ let gvIndexMediaObj =
       ],
      'Recent' : 
       [
-        '2015-01 rosegraduationbsc',
-        '2017-01 hobbiesailing'
+        '2011-01 Dave & Robb skiing, Zermatt, Switz',
+        '2011-02 Dave & Robb ski jumping, Zermatt, Switz',
+        '2015-01 rosegraduation',
+        '2015-02 rosegraduation',
+        '2015-03 grannygrandadbeaconway 2015',
+        '2017-01 hobbiesailing',
+        '2019-01 daveexetergraduation'
       ]
 };

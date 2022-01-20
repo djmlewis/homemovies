@@ -440,6 +440,11 @@ let gvTitlesObj = {
 "GAL-21" : "Sharks & rays, land iguanas, Bartolome, Galapagos",
 "GAL-22" : "Stormy petrels, storks, Bartolome, Galapagos",
 "T2008-01" : "Rose & Grace, Iguacu Falls, Brazil",
-"2015-01 rosegraduationbsc" : "Rose BSc Graduation, Nottingham University, 2015",
-"2017-01 hobbiesailing" : "Dave helming Hobbie, Turkey, 2017"
+"2015-01 rosegraduation" : "Rose MB BS Graduation, Nottingham University, 2015",
+"2015-02 rosegraduation" : "Rose MB BS Graduation, Nottingham University, 2015",
+"2015-03 grannygrandadbeaconway 2015" : "Granny & Grandad in Beacon Way 2015",
+"2017-01 hobbiesailing" : "Dave helming Hobbie, Turkey, 2017",
+"2019-01 daveexetergraduation" : "Dave Exeter graduation 2019",
+"2011-01 Dave & Robb skiing, Zermatt, Switz" : "Dave & Robb skiing, Zermatt, Switz., 2011",
+"2011-02 Dave & Robb ski jumping, Zermatt, Switz" : "Dave & Robb ski jumping, Zermatt, Switz, 2011"
 };
