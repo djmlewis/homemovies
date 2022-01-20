@@ -502,7 +502,7 @@ let gvIndexMediaObj =
       [
         '2010-01'
       ],
-     'Recent' : 
+     '2011+' : 
       [
         '2011-01 Dave & Robb skiing, Zermatt, Switz',
         '2011-02 Dave & Robb ski jumping, Zermatt, Switz',
