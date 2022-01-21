@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="26484dc0-703d-4fef-b830-d40369367782" name="hm.djml.uk" url="http://hm.djml.uk">
+        <fileTransfer rootFolder="/home/kc3k9j2y/hm.djml.uk" accessType="SFTP" host="lhcp2059.webapps.net" port="25088" sshConfigId="b1f14c29-7968-4d93-80fd-d85a85f9f64f" sshConfig="hm.djml.uk" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
