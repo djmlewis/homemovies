@@ -429,6 +429,7 @@ let gvIndexMediaObj =
       ],
      '2006ii' : 
       [
+        'SHS Ski 2006',
         'T34-01',
         'T34-02',
         'T34-03',
@@ -490,25 +491,41 @@ let gvIndexMediaObj =
         'TGAL-18',
         'TGAL-19',
         'TGAL-20',
+        'TGAL-20i',
         'TGAL-21',
         'TGAL-22'
       ],
      '2008' : 
       [
         'T2008-01',
-        'T2008-02'
+        'T2008-02',
+        'T2008-03 whitgift',
+        'T2008-04 windsurfing'
+      ],
+     '2009' : 
+      [
+        '2009-02 rose dave tobogganning Zermatt',
+        '2009-03 rose dave skiing zermatt',
+        '2009-1 dave ski jumping zermatt'
       ],
      '2010' : 
       [
-        '2010-01'
+        '2010-01',
+        '2010-02'
       ],
      '2011+' : 
       [
         '2011-01 Dave & Robb skiing, Zermatt, Switz',
         '2011-02 Dave & Robb ski jumping, Zermatt, Switz',
+        '2011-03 African Wild Dogs & hyenas, S_ Africa',
+        '2011-03 glastonbury',
         '2015-01 rosegraduation',
         '2015-02 rosegraduation',
         '2015-03 grannygrandadbeaconway 2015',
+        '2015-04 dave half marathon',
+        '2015-04 dave mauritius 2015',
+        '2015-05 dave botswana',
+        '2015-06 dave surrey wildlife centre',
         '2017-01 hobbiesailing',
         '2019-01 daveexetergraduation'
       ]
