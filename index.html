@@ -20,8 +20,8 @@
     <script src="js/indexmedia.63.js" defer></script>
     <script src="js/indexTitles.41.js" defer></script>
     <script src="js/gvIndexHTML.56.js" defer></script>
-    <script src="js/favourites.10.js" defer></script>
-    <script src="js/headscripts.88.js" defer></script>
+    <script src="js/favourites.11.js" defer></script>
+    <script src="js/headscripts.89.js" defer></script>
 
 
 </head>
@@ -49,7 +49,7 @@
                     <div id="div-thumbName" class="cssDivThumbName px-1 flex-grow-1"></div>
                     <img hidden
                          id="img-favourite"
-                         src="img/emptyHeart.png"
+                         src="img/emptyHeart1.png"
                          class="cssImgFavourite"
                          onclick="handleFavouriteClicked()"
                          title="Tap to make favourite"
@@ -62,7 +62,7 @@
         </div>
         <div id="col-thumbnails" class="col-md-4 d-flex flex-column cssColThumbnails">
             <button id="btn-ThumbsIndex" type="button" class="btn btn-sm btn-dark sticky-top" onclick="toggleIndexThumbs(this)"
-                    style="margin-top: 6px; margin-left:auto;margin-right:auto;min-height: 32px;!important; color:#ffc107;!important;border-color:#ffc107;!important; ">Show Titles</button>
+                    style="margin-left:auto;margin-right:auto;min-height: 32px;!important; color:#ffc107;!important;border-color:#ffc107;!important; ">Show Titles</button>
             <div id="div-thumbnailsouter" class="cssDivThumbnails flex-shrink-1 d-flex flex-row flex-wrap align-items-start justify-content-evenly"></div>
         </div>
     </div>
@@ -71,14 +71,21 @@
 <input type="file" id="fileElemFavourites"  accept=".json" style="display:none" onchange="handleFavouritesFileElementChanged(this)">
 <div id="div-favsbuttons" style="display:none">
     <p class="cssFavsMessage text-center">Tap
-    <img class="cssImgFavsMessage" src="img/emptyHeart.png" alt=""> / <img class="cssImgFavsMessage" src="img/filledHeart.png" alt="">
+    <img class="cssImgFavsMessage" src="img/emptyHeart1.png" alt=""> / <img class="cssImgFavsMessage" src="img/filledHeart1.png" alt="">
     under the player to add / remove videos to this list.</p>
     <div class="d-flex flex-row flex-nowrap justify-content-evenly">
-    <button type="button" class="btn btn-warning btn-sm" onclick="handleDropdownItemClicked('savefavs')"><img src="img/sharerup1black.png" alt="" class="cssImgShare"> Export ♥︎ </button>
-    <button type="button" class="btn btn-warning btn-sm"  onclick="handleDropdownItemClicked('loadfavs')"><img src="img/sharedownblack.png" alt="" class="cssImgShare"> Import ♥︎ </button>
+        <button type="button" class="btn btn-warning btn-sm" onclick="handleDropdownItemClicked('savefavs')"><img src="img/sharerup1black.png" alt="" class="cssImgShare"> Export ♥︎ </button>
+        <button type="button" class="btn btn-warning btn-sm"  onclick="handleDropdownItemClicked('loadfavs')"><img src="img/sharedownblack.png" alt="" class="cssImgShare"> Import ♥︎ </button>
     </div>
     <p class="cssFavsMessage">Tap the buttons to export a list of these favourites for import to another device / browser. Imported favourites are merged with existing ones.
-    On mobile devices only Safari can export easily - file appears in Recents or Downloads folder. On desktop browsers the exported file is saved in Downloads folder unless you change browser settings.</p>
+    On mobile devices only Safari can export easily - file appears in Recents or Downloads folder. On desktop browsers the exported file is saved in Downloads folder unless you change browser settings.
+    </p>
+    <div class="d-flex flex-row flex-nowrap justify-content-around">
+        <button type="button" class="btn btn-warning btn-sm"
+                onclick="handleClearFavsClicked()">
+            <img src="img/clearBlack.png" alt="" class="cssImgShare"> Clear ♥︎
+        </button>
+    </div>
 </div>
 
 

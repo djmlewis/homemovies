@@ -186,17 +186,18 @@ function handleDivVideoResize() {
     // i dont trust reported col heights so have a special div video outer
     const divvideoouter = document.getElementById('div-videoOuter');
     const divYears = document.getElementById('div-years');
-    document.getElementById('btn-ThumbsIndex').hidden = indexIsSelectedYear() || favsIsSelectedYear();
+    const btnThumbsIndex = document.getElementById('btn-ThumbsIndex');
+    btnThumbsIndex.hidden = indexIsSelectedYear() || favsIsSelectedYear();
     if(isLandscape()) {
         //alongside
         colthumbs.style.height = innerheight + 'px';
         colyears.style.height = innerheight + 'px';
-        //document.getElementById('btn-ThumbsIndex').hidden = indexIsSelectedYear() || favsIsSelectedYear();
+        btnThumbsIndex.style.marginTop = '6px';
     } else {
         // stacked
         colthumbs.style.height = (innerheight - divYears.getBoundingClientRect().height - divvideoouter.getBoundingClientRect().height) + 'px';
         colyears.style.height = 'auto';
-        //document.getElementById('btn-ThumbsIndex').hidden = true;
+        btnThumbsIndex.style.marginTop = '0';
     }
 }
 

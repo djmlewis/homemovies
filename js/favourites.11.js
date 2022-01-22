@@ -30,12 +30,12 @@ function isFavourite(name) {
 function updateFavouriteIconForStatus(isFavourite) {
     const img = document.getElementById('img-favourite');
     if(isFavourite) {
-        img.src = "img/filledHeart.png";
+        img.src = "img/filledHeart1.png";
         img.alt = "Favourite";
         img.title = "Tap to unfavourite";
     } else
     {
-        img.src = "img/emptyHeart.png";
+        img.src = "img/emptyHeart1.png";
         img.alt = "";
         img.title = "Tap to make favourite";
     }
@@ -93,5 +93,12 @@ function displayFavouritesFileDialog() {
     document.getElementById('fileElemFavourites').click();
 }
 
+function handleClearFavsClicked() {
+    for (const prop of Object.getOwnPropertyNames(gvFavouritesObj)) {
+        delete gvFavouritesObj[prop];
+    }
+    saveFavourites();
+    if(favsIsSelectedYear()) loadThumbnailsForYear(kFavsName);
+}
 
 loadFavourites();
