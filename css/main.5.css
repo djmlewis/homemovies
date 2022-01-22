@@ -112,7 +112,7 @@ body {
 
 .cssYearBtn {
     cursor: pointer;
-    pointer-events: all;
+    /*pointer-events: all;*/
     font-family: "Trebuchet MS",sans-serif;
     font-size: large;
 }
