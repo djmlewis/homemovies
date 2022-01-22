@@ -32,7 +32,7 @@ function buildYearButtons() {
         btn.className = 'cssYearBtn cssYearUnselected' + favCSS;
         btn.innerText = yearName;
         btn.setAttribute('data-year',yearName);
-        btn.onclick = (ev)=>{handleYearClicked(ev)};
+        btn.onclick = handleYearClicked;//(ev)=>{handleYearClicked(ev)};
         divYears.appendChild(btn);
     });
     addIndexYearButton(divYears);
