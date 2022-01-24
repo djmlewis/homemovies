@@ -166,6 +166,10 @@ function loadVideoFromThumbnailObj(thumbnail) {
     divthumbname.setAttribute('data-year',year);
     setThumbnameForID(divthumbname,thumbName,year);
     document.getElementById('img-favourite').hidden = false;
+    const btndownload = document.getElementById('img-downloadvideo');
+    btndownload.hidden = false;
+    btndownload.setAttribute('data-mpegpath', thumbnail.getAttribute('data-mpegpath'));
+    btndownload.setAttribute('data-thumbName', thumbnail.getAttribute('data-thumbName'));
     updateFavouriteIconForStatus(isFavourite(thumbName));
 }
 
@@ -283,4 +287,14 @@ function selectedYearButtonIsNamed(name) {
 
 function indexIsSelectedYear() {
     return selectedYearButtonIsNamed(kTitlesIndexName);
+}
+
+function handleDownloadVideoClicked() {
+    const btndownload = document.getElementById('img-downloadvideo');
+    const anchor = document.createElement('a');
+    anchor.href = btndownload.getAttribute('data-mpegpath');
+    anchor.download = btndownload.getAttribute('data-thumbname')+'.mp4';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
 }

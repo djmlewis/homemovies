@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.5.css">
+    <link rel="stylesheet" href="css/main.6.css">
 
     <!-- my scripts -->
     <script src="js/globals.7.js" defer></script>
@@ -21,7 +21,7 @@
     <script src="js/indexTitles.41.js" defer></script>
     <script src="js/gvIndexHTML.56.js" defer></script>
     <script src="js/favourites.11.js" defer></script>
-    <script src="js/headscripts.90.js" defer></script>
+    <script src="js/headscripts.91.js" defer></script>
 
 
 </head>
@@ -47,6 +47,13 @@
                         <label class="form-check-label cssSwitchAutoplay overflow-hidden" for="switch-autoplay" onclick="handleSwitchAutoplayClicked()">Autoplay</label>
                     </div>
                     <div id="div-thumbName" class="cssDivThumbName px-1 flex-grow-1"></div>
+                    <img hidden
+                         id="img-downloadvideo"
+                         src="img/sharedown1.png"
+                         class="cssImgFavourite"
+                         onclick="handleDownloadVideoClicked()"
+                         title="Tap to download video"
+                         alt="">
                     <img hidden
                          id="img-favourite"
                          src="img/emptyHeart1.png"
