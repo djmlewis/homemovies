@@ -183,7 +183,7 @@ body {
 }
 
 /* *** WHEN PHONE LANDSCAPE or wider *** */
-@media (min-width: 768px) {
+@media (min-width: 576px) {
     .cssThumbnailImage {
         width: 45%;
         max-width: 48%;
