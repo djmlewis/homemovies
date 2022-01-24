@@ -121,7 +121,7 @@ body {
     /*pointer-events: all;*/
     font-family: "Trebuchet MS",sans-serif;
     /*font-size: large;*/
-    padding: 0;
+    padding: 2px 4px 0 4px;
     margin: 0;
     border-radius: 4px;
     letter-spacing: 0.0rem;
