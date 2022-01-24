@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="hmt.djml.uk" uploadOnCheckin="26484dc0-703d-4fef-b830-d40369367782" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="hm.djml.uk" uploadOnCheckin="26484dc0-703d-4fef-b830-d40369367782" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="hmt.djml.uk">
+      <paths name="hm.djml.uk">
         <serverdata>
           <mappings>
             <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
