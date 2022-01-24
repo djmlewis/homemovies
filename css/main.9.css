@@ -112,12 +112,23 @@ body {
     padding-top: 4px;
 }
 
+.cssDivYears {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .cssYearBtn {
     cursor: pointer;
     /*pointer-events: all;*/
     font-family: "Trebuchet MS",sans-serif;
-    font-size: large;
+    /*font-size: large;*/
+    padding: 3px 6px;
+    margin: 0 1px 1px 1px;
+    border-radius: 4px;
+    letter-spacing: 0.0rem;
+    font-size: medium;
+    min-height: 30px;
 }
+
 .cssYearBtnFavs {
     min-width: 3.5rem;
     text-align: center;
@@ -146,11 +157,6 @@ body {
     /*max-height: none;*/
     /*overflow: hidden;*/
     /*padding-top: 6px;*/
-}
-.cssYearBtn {
-    padding: 3px 6px;
-    margin: 0 1px 1px 1px;
-    border-radius: 4px;
 }
 .cssYearSelected {
     background-color: var(--colour-selected,#ffc107);
