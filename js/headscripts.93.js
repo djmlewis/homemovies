@@ -123,9 +123,8 @@ function thumnNailDivForNameYear(thumbName, year) {
     img.setAttribute('data-year',year);
     img.setAttribute('data-jpegpath','media/jpegs/'+year+'/'+thumbName+'.jpg');
     img.setAttribute('data-mpegpath','media/mpegs/'+year+'/'+thumbName+'.mp4');
-    //img.onclick = (ev)=>{handleThumbnailClicked(ev)};
+    img.style.objectFit = 'scale-down';
     img.onclick = (ev)=>{handleThumbnailClicked(ev)};
-    // img.onload = ()=>{handleDivVideoResize()};
     imgdiv.appendChild(img);
     return imgdiv;
 }
