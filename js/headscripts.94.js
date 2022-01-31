@@ -1,5 +1,5 @@
 // call these functions on DOM loaded
-window.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     applySettingsAtStartup();
     buildYearButtons();
 });
