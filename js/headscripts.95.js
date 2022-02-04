@@ -1,10 +1,10 @@
-// call these functions on DOM loaded
+// call these functions on DOM loaded  -- DOMContentLoaded on DOCUMENT, onload on WINDOW
 document.addEventListener('DOMContentLoaded', function () {
     applySettingsAtStartup();
     buildYearButtons();
 });
 
-// call these functions on page fully loaded
+// call these functions on page fully loaded  -- DOMContentLoaded on DOCUMENT, onload on WINDOW
 window.addEventListener('load', function () {
     window.addEventListener('resize',()=>handleWindowResize());
     const year = localStorage.getItem(ls_yearButtonName);

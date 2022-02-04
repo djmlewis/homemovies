@@ -171,15 +171,13 @@ body {
 .cssBackgroundColourSelected {
     background-color: var(--colour-selected,#ffc107);
 }
-.cssImgFavourite {
+.cssImgFavourite, .cssImgShare {
     cursor: pointer;
     pointer-events: all;
     max-height: 20px;
     margin-right: 12px;
 }
-.cssImgShare {
-    max-height: 20px;
-}
+
 .cssImgFavsMessage {
     max-height: 12px;
 }
