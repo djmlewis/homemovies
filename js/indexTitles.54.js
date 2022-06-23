@@ -461,5 +461,10 @@ let gvTitlesObj = {
 "2015-06 dave surrey wildlife centre" : "Dave Surrey Wildlife Centre, 2015",
 "2015-05 dave botswana" : "Dave Botswana, 2015",
 "2015-04 dave half marathon" : "Dave half marathon, 2015",
-"2015-04 dave mauritius 2015" : "Dave Mauritius, 2015"
+"2015-04 dave mauritius 2015" : "Dave Mauritius, 2015",
+"199110" : "1991 Oct",
+"199111-199112" : "1991 Nov - Dec",
+"199112-199202" : "1991 Dec - 1992 Feb",
+"199203_199206" : "1992 Mar - Jun",
+"199206_199210" : "1992 Jun - Oct"
 };

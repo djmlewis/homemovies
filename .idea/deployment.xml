@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="hm djml wales" uploadOnCheckin="26484dc0-703d-4fef-b830-d40369367782" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+  <component name="PublishConfigData" serverName="hm djml wales" createEmptyFolders="true" uploadOnCheckin="26484dc0-703d-4fef-b830-d40369367782" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
       <paths name="hm djml wales">
@@ -10,10 +10,10 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="hm.djml.uk">
+      <paths name="photos djml.wales">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/photos.djml.wales" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

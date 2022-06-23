@@ -3,28 +3,44 @@ let gvFavouritesObj = {};
 
 function loadFavourites() {
     if (!localStorage.getItem(ls_favourites)) localStorage.setItem(ls_favourites, JSON.stringify(gvFavouritesObj));
-    else gvFavouritesObj = JSON.parse(localStorage.getItem(ls_favourites));
-    gvIndexMediaObj[kFavsName] = [];//actually ignored just a placeholder for the tab
+    else {
+        let madeCorrections = false;
+        const tempFavouritesObj = JSON.parse(localStorage.getItem(ls_favourites));
+        // clean up any old style entries
+        for (const [key, value] of Object.entries(tempFavouritesObj)) {
+            if(!key.includes("/")) {
+                // previous version with a [thumbname] = year format. make new in new style
+                tempFavouritesObj[value+"/"+key+".mp4"] = "";
+                delete tempFavouritesObj[key];
+                madeCorrections = true;
+            }
+        }
+        gvFavouritesObj = tempFavouritesObj;
+        if(madeCorrections) localStorage.setItem(ls_favourites, JSON.stringify(gvFavouritesObj));
+    }
 }
 
 function saveFavourites() {
     localStorage.setItem(ls_favourites, JSON.stringify(gvFavouritesObj));
 }
 
-function addNameToFavourites(name,year) {
-    gvFavouritesObj[name] =year;
+function addNameToFavourites(mpegpath,chapter) {
+    // ensure we have a short mpegpath
+    gvFavouritesObj[shortMPEGpath(mpegpath)] = chapter;
     saveFavourites();
     // if yearFavs is active then this does nothing so no need to update thumbnails
 }
 
-function deleteNameFromFavourites(name) {
-    delete gvFavouritesObj[name];
+function deleteNameFromFavourites(mpegpath) {
+    // ensure we have a short mpegpath
+    delete gvFavouritesObj[shortMPEGpath(mpegpath)];
     saveFavourites();
     if(favsIsSelectedYear()) loadThumbnailsForYear(kFavsName);
 }
 
-function isFavourite(name) {
-    return gvFavouritesObj.hasOwnProperty(name);
+function isFavourite(mpegpath) {
+    // ensure we have a short mpegpath
+    return gvFavouritesObj.hasOwnProperty(shortMPEGpath(mpegpath));
 }
 
 function updateFavouriteIconForStatus(isFavourite) {
@@ -41,15 +57,16 @@ function updateFavouriteIconForStatus(isFavourite) {
     }
 }
 
-function handleFavouriteClicked() {
+function handleFavouriteBtnClicked() {
     const divThumbName = document.getElementById('div-thumbName');
-    const thumbName = divThumbName.getAttribute('data-thumbName');
-    const isFav = isFavourite(thumbName);
+    const mpegpath = divThumbName.getAttribute('data-mpegpath');
+    const chaptername = divThumbName.getAttribute('data-chaptername');
+    const isFav = isFavourite(mpegpath);
     if(isFav) {
-        deleteNameFromFavourites(thumbName);
-    } else
-    {
-        addNameToFavourites(thumbName,divThumbName.getAttribute('data-year'));
+        deleteNameFromFavourites(mpegpath);
+    } else  {
+        const chapter = chaptername === null ? "" : chaptername;
+        addNameToFavourites(mpegpath,chapter);
     }
     const selectedYearDiv = document.getElementById('div-years').getElementsByClassName('cssYearSelected').item(0);
     // refresh the Favs thumbs if displayed
@@ -77,7 +94,15 @@ function handleFavouritesFileElementChanged(element) {
         element.files[0].text().then(text => {
             const favsOj = JSON.parse(String(text));
             if(!!favsOj) {
-                for (const [key, value] of Object.entries(favsOj)) gvFavouritesObj[key] = value;
+                for (const [key, value] of Object.entries(favsOj)) {
+                    if(key.includes("/")) {
+                        // latest version with a [year/thumbname.mp4] = chapterTitle format
+                        gvFavouritesObj[key] = value;
+                    } else {
+                        // previous version with a [thumbname] = year format
+                        gvFavouritesObj[value+"/"+key+".mp4"] = "";
+                    }
+                }
                 saveFavourites();
                 if(favsIsSelectedYear()) loadThumbnailsForYear(kFavsName);
             }

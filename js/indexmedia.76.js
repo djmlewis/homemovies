@@ -528,5 +528,13 @@ let gvIndexMediaObj =
         '2015-06 dave surrey wildlife centre',
         '2017-01 hobbiesailing',
         '2019-01 daveexetergraduation'
+      ],
+     'tapes' : 
+      [
+        '199110',
+        '199111-199112',
+        '199112-199202',
+        '199203_199206',
+        '199206_199210'
       ]
 };
