@@ -178,8 +178,8 @@ body {
 }
 
 .cssDivChapterName {
-    color: green; /* var(--colour-selected,#ffc107);*/
-    background-color: red;/*rgba(33,33,33,0.8);*/
+    color: whitesmoke; /* var(--colour-selected,#ffc107);*/
+    background-color: rgba(33,33,33,0.8);
     font-family: "Trebuchet MS",sans-serif;
     font-size: small;
     font-style: italic;
@@ -189,7 +189,7 @@ body {
     min-width: 100%;
     pointer-events: none;
     height: auto;
-    max-height: 10px;!important;
+    max-height: 100%;!important;
     overflow-y: hidden;
 }
 .cssTapeTitleText {
