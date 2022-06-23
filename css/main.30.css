@@ -189,7 +189,7 @@ body {
     min-width: 100%;
     pointer-events: none;
     /*height: auto;*/
-    max-height: 50px;!important;
+    max-height: 10px;!important;
 
 }
 .cssTapeTitleText {
