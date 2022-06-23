@@ -188,7 +188,7 @@ body {
     max-width: 100%;
     min-width: 100%;
     pointer-events: none;
-    height: auto;
+    /*height: auto;*/
     max-height: 50px;!important;
 
 }
