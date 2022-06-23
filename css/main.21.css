@@ -1,6 +1,6 @@
 :root {
     --colour-selected: #ffc107;
-    --colour-selectedTapes: #0d6efd;
+    --colour-selectedTapes: #0dcaf0;
     --colour-selectedFavs: #ff2f92;
 }
 
@@ -25,8 +25,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     min-height: 32px; !important;
-    color: var(--colour-selectedTapes,#0d6efd); !important;
-    border-color: var(--colour-selectedTapes,#0d6efd); !important;
+    color: var(--colour-selectedTapes,#0dcaf0); !important;
+    border-color: var(--colour-selectedTapes,#0dcaf0); !important;
 }
 
 .cssPointerEventsAll {
@@ -81,7 +81,7 @@ body {
     background-color: #c99804;
 }
 .cssIndexYearHeaderTapes {
-    background-color: var(--colour-selectedTapes,#0d6efd);
+    background-color: var(--colour-selectedTapes,#0dcaf0);
 }
 
 .cssIndexRow {
@@ -190,7 +190,9 @@ body {
     pointer-events: none;
     height: auto;
 }
-
+.cssTapeTitleText {
+    color: var(--colour-selectedTapes,#0dcaf0);
+}
 .cssColThumbnails {
     /* gets its height set specifically */
     overflow-y: hidden;
@@ -212,7 +214,7 @@ body {
     color: black;
 }
 .cssYearSelectedTapes {
-    background-color: var(--colour-selectedTapes,#0d6efd); !important;
+    background-color: var(--colour-selectedTapes,#0dcaf0); !important;
 }
 .cssYearSelectedFavs {
     background-color: var(--colour-selectedFavs,#ff2f92); !important;
