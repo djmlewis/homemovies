@@ -426,6 +426,10 @@ function loadTapeChaptersList(thumbname) {
     const divChaptersOuter = document.createElement('div');
     divChaptersOuter.className = "cssDivThumbsInner";
     divChaptersOuter.onclick = (ev)=>loadVideoFromChapter(ev.target);
+    const infoDiv = document.createElement('div');
+    infoDiv.innerText = "Click clips below to play just that section of tape. There may be a delay in clips loading.";
+    infoDiv.className = "cssInfoDivTapesChapters";
+    divChaptersOuter.appendChild(infoDiv);
     // cycle thru the tapes chapters array which has elements as array: [start,end,title] ['38995','40489','Garden, Southwood Lane']
     gvTapesObj[tapesObjTapesChaptersObj][thumbname].forEach(startEndtitleArray=>{
         const divchapter = document.createElement('div');

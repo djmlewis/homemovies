@@ -193,6 +193,13 @@ body {
 .cssTapeTitleText {
     color: var(--colour-selectedTapes,#0dcaf0);
 }
+.cssInfoDivTapesChapters {
+    color: var(--colour-selectedTapes,#0dcaf0);
+    font-family: "Trebuchet MS",sans-serif;
+    font-size: small;
+    font-style: italic;
+    text-align: center;
+}
 .cssColThumbnails {
     /* gets its height set specifically */
     overflow-y: hidden;
@@ -242,6 +249,7 @@ body {
 .cssMiniImage {
     max-height: 12px;
 }
+
 
 /* *** WHEN PHONE LANDSCAPE or wider *** */
 @media (min-width: 576px) {
