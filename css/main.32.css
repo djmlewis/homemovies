@@ -190,7 +190,7 @@ body {
     pointer-events: none;
     height: auto;
     max-height: 10px;!important;
-
+    overflow-y: clip;
 }
 .cssTapeTitleText {
     color: var(--colour-selectedTapes,#0dcaf0);
