@@ -189,7 +189,8 @@ body {
     min-width: 100%;
     pointer-events: none;
     height: auto;
-    max-height: 100%;!important;
+    max-height: 50px;!important;
+
 }
 .cssTapeTitleText {
     color: var(--colour-selectedTapes,#0dcaf0);
