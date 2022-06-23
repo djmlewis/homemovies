@@ -173,7 +173,7 @@ function thumnNailDivForFavourite(mpegpath, chapterName) {
     if(chapterName != null && chapterName.length>0) {
         const divchaptername = document.createElement('div');
         divchaptername.innerText = chapterName;
-        divchaptername.className = "cssDivChapterName text-center h-auto position-absolute top-50 start-50 translate-middle py-1 px-2";
+        divchaptername.className = "cssDivChapterName ";
         imgdiv.appendChild(divchaptername);
 
     }
