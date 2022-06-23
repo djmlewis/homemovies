@@ -1,6 +1,6 @@
 :root {
     --colour-selected: #ffc107;
-    --colour-selectedTapes: #0dcaf0;
+    --colour-selectedTapes: #ffc107;/*0dcaf0*/
     --colour-selectedFavs: #ff2f92;
 }
 
