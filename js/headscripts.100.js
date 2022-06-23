@@ -172,7 +172,7 @@ function thumnNailDivForFavourite(mpegpath, chapterName) {
 
     if(chapterName != null && chapterName.length>0) {
         const divchaptername = document.createElement('div');
-        divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+'</span><br>'+chapterName ;
+        divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+':</span> '+chapterName ;
         divchaptername.className = "cssDivChapterName ";
         imgdiv.appendChild(divchaptername);
 
