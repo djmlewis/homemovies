@@ -179,7 +179,7 @@ body {
 
 .cssDivChapterName {
     color: whitesmoke; /* var(--colour-selected,#ffc107);*/
-    background-color: rgba(33,33,33,0.8);
+    background-color: red;/*rgba(33,33,33,0.8);*/
     font-family: "Trebuchet MS",sans-serif;
     font-size: small;
     font-style: italic;
