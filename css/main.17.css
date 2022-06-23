@@ -184,6 +184,10 @@ body {
     font-size: small;
     font-style: italic;
     text-align: center;
+    width: 90%;
+    max-width: 90%;
+    min-width: 90%;
+    pointer-events: none;
 }
 
 .cssColThumbnails {
