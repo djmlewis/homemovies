@@ -15,6 +15,7 @@ const kMPEGpathPrefix = 'media/mpegs/';
 const kJPEGpathPrefix = 'media/jpegs/';
 const kJPEGpathSuffix = '.jpg';
 
+let gvTimeoutInfoDivTapesChapters = undefined;
 
 function fqMPEGpath(mpegpath) {
     return kMPEGpathPrefix + mpegpath;

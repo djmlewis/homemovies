@@ -426,10 +426,6 @@ function loadTapeChaptersList(thumbname) {
     const divChaptersOuter = document.createElement('div');
     divChaptersOuter.className = "cssDivThumbsInner";
     divChaptersOuter.onclick = (ev)=>loadVideoFromChapter(ev.target);
-    // const infoDiv = document.createElement('div');
-    // infoDiv.innerText = "Click clips below to play just that section of tape. There may be a delay in clips loading.";
-    // infoDiv.className = "cssInfoDivTapesChapters";
-    // divChaptersOuter.appendChild(infoDiv);
     // cycle thru the tapes chapters array which has elements as array: [start,end,title] ['38995','40489','Garden, Southwood Lane']
     gvTapesObj[tapesObjTapesChaptersObj][thumbname].forEach(startEndtitleArray=>{
         const divchapter = document.createElement('div');
@@ -442,8 +438,15 @@ function loadTapeChaptersList(thumbname) {
         divChaptersOuter.appendChild(divchapter);
     });
     divThumbnailsOuter.appendChild(divChaptersOuter);
-    document.getElementById('div-chaptersListTitleDiv').innerHTML = gvTitlesObj[thumbname] + "<span class = 'cssInfoDivTapesChapters'><br>" + "Click clips below to play just that section of tape. There may be a delay in clips loading.</span>";
+    document.getElementById('div-chaptersListTitleDiv').innerHTML = gvTitlesObj[thumbname] +
+        "<span class = 'cssInfoDivTapesChapters'><br>" +
+        "Click clips below to play just that section of tape.<br>There may be a delay in clips loading.</span>";
     hideShowChaptersHeader(false);
+    clearTimeout(gvTimeoutInfoDivTapesChapters);
+    gvTimeoutInfoDivTapesChapters = setTimeout(()=>{
+        gvTimeoutInfoDivTapesChapters = undefined;
+        Array.from(document.getElementsByClassName('cssInfoDivTapesChapters')).forEach(span=>{span.style.display = 'none';})
+    },6000);
 }
 
 function loadVideoFromChapter(chapterDiv) {
