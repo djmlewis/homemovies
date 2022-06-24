@@ -1,6 +1,6 @@
 :root {
     --colour-selected: #ffc107;
-    --colour-selectedTapes: #ffc107;/*0dcaf0*/
+    --colour-selectedTapes: #0dcaf0;/*0dcaf0*/
     --colour-selectedFavs: #ff2f92;
 }
 
@@ -82,6 +82,14 @@ body {
 }
 .cssIndexYearHeaderTapes {
     background-color: var(--colour-selectedTapes,#0dcaf0);
+    line-height: 0.9;
+}
+.cssInfoDivTapesChapters {
+    /*color: var(--colour-selectedTapes,#0dcaf0);*/
+    /*font-family: "Trebuchet MS",sans-serif;*/
+    font-size: small;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 .cssIndexRow {
@@ -194,13 +202,6 @@ body {
 }
 .cssTapeTitleText {
     color: var(--colour-selectedTapes,#0dcaf0);
-}
-.cssInfoDivTapesChapters {
-    color: var(--colour-selectedTapes,#0dcaf0);
-    font-family: "Trebuchet MS",sans-serif;
-    font-size: small;
-    font-style: italic;
-    text-align: center;
 }
 .cssColThumbnails {
     /* gets its height set specifically */
