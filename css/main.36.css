@@ -231,7 +231,13 @@ body {
 }
 .cssYearUnselected {
     background-color: #212121;
-    color: #797979;
+    color: var(--colour-selected,#ffc107);
+}
+.cssTapesUnselected {
+    color: var(--colour-selectedTapes,#0dcaf0); !important;
+}
+.cssFavsUnselected {
+    color: var(--colour-selectedFavs,#ff2f92); !important;
 }
 .cssColourSelected {
     color: var(--colour-selected,#ffc107);
@@ -245,7 +251,6 @@ body {
     max-height: 20px;
     margin-right: 12px;
 }
-
 .cssImgFavsMessage {
     max-height: 12px;
 }

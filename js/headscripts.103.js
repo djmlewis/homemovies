@@ -52,7 +52,7 @@ function buildYearButtons() {
 }
 function addFavsYearButton(divYears) {
     let btn = document.createElement('div');
-    btn.className = 'cssYearBtn cssYearUnselected cssYearBtnFavs';
+    btn.className = 'cssYearBtn cssYearUnselected cssFavsUnselected cssYearBtnFavs';
     btn.innerText = kFavsName;
     btn.setAttribute('data-year',kFavsName);
     btn.onclick = handleYearClicked;
@@ -60,7 +60,7 @@ function addFavsYearButton(divYears) {
 }
 function addTapesYearButton(divYears) {
     let btn = document.createElement('div');
-    btn.className = 'cssYearBtn cssYearUnselected';
+    btn.className = 'cssYearBtn cssYearUnselected cssTapesUnselected';
     btn.innerText = kTitlesTapesName;
     btn.setAttribute('data-year',kTitlesTapesName);
     btn.onclick = (ev)=>{handleYearClicked(ev)};
@@ -170,12 +170,12 @@ function thumnNailDivForFavourite(mpegpath, chapterName) {
     //img.hidden = true;
     imgdiv.appendChild(img);
 
-    if(chapterName != null && chapterName.length>0) {
+    if(yearFromMPEGpath(mpegpath) === kTitlesTapesName) {
         const divchaptername = document.createElement('div');
-        divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+':</span> '+chapterName ;
+        if(chapterName != null && chapterName.length>0) divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+':</span> '+chapterName ;
+        else divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+'</span>';
         divchaptername.className = "cssDivChapterName ";
         imgdiv.appendChild(divchaptername);
-
     }
     return imgdiv;
 }
@@ -200,11 +200,15 @@ function toggleYearBtnSelected(btn,selected) {
         if(btn.innerText === kTitlesTapesName) btn.classList.add('cssYearSelectedTapes');
         if(btn.innerText === kFavsName) btn.classList.add('cssYearSelectedFavs');
         btn.classList.remove('cssYearUnselected');
+        btn.classList.remove('cssTapesUnselected');
+        btn.classList.remove('cssFavsUnselected');
     } else {
         btn.classList.remove('cssYearSelected');
         btn.classList.remove('cssYearSelectedTapes');
         btn.classList.remove('cssYearSelectedFavs');
         btn.classList.add('cssYearUnselected');
+        if(btn.innerText === kTitlesTapesName) btn.classList.add('cssTapesUnselected');
+        if(btn.innerText === kFavsName) btn.classList.add('cssFavsUnselected');
     }
 }
 
@@ -246,9 +250,17 @@ function loadVideoFromThumbnailObj(thumbnail) {
 }
 
 function setThumbnameForID(divthumbname, thumbName,year,description) {
-    const caption = description == null || description.length ===0 ? "" : " : "+description ;
-    if(!!gvTitlesObj[thumbName]) divthumbname.innerText = gvTitlesObj[thumbName] + caption;
-    else divthumbname.innerText = year+':' + caption;
+    if(description == null || description.length ===0) {
+        if(!!gvTitlesObj[thumbName]) {
+            if(year === 'Tapes') divthumbname.innerHTML = '<span class="cssTapesUnselected">' + gvTitlesObj[thumbName] + '</span>';
+            else divthumbname.innerHTML = gvTitlesObj[thumbName];
+        } else {
+            // i dont think this ever gets called
+            divthumbname.innerHTML = year;
+        }
+    } else {
+        divthumbname.innerHTML = '<span class="cssTapesUnselected">' + gvTitlesObj[thumbName] + " : " + '</span>' + description;
+    }
 }
 
 function handleWindowResize() {
@@ -385,8 +397,8 @@ function loadTapesList() {
     divTapesIDsOuter.onclick = (ev)=>loadVideoFromTapeDiv(ev.target);
     gvTapesObj[tapesObjTapesIDsArray].forEach(thumbName=>{
         const divTapesTitle = document.createElement('div');
-        divTapesTitle.className = "cssIndexRow cssBanding";
-        divTapesTitle.setAttribute('data-mpegpath',"tapes/"+thumbName+".mp4");
+        divTapesTitle.className = "cssIndexRow cssBanding cssTapesUnselected";
+        divTapesTitle.setAttribute('data-mpegpath',"Tapes/"+thumbName+".mp4");
         divTapesTitle.setAttribute('data-thumbname',thumbName);
         divTapesTitle.innerText = gvTitlesObj[thumbName];
         divTapesIDsOuter.appendChild(divTapesTitle);
@@ -430,7 +442,7 @@ function loadTapeChaptersList(thumbname) {
     gvTapesObj[tapesObjTapesChaptersObj][thumbname].forEach(startEndtitleArray=>{
         const divchapter = document.createElement('div');
         divchapter.className = "cssIndexRow cssBanding";
-        divchapter.setAttribute('data-mpegpath',"tapes/" + thumbname+".mp4"+"#t=" + startEndtitleArray[0] + "," + startEndtitleArray[1]);
+        divchapter.setAttribute('data-mpegpath',"Tapes/" + thumbname+".mp4"+"#t=" + startEndtitleArray[0] + "," + startEndtitleArray[1]);
         divchapter.setAttribute('data-thumbname',thumbname);
         // chapter divs use a chapter name
         divchapter.setAttribute('data-chaptername', startEndtitleArray[2]);

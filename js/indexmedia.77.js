@@ -529,7 +529,7 @@ let gvIndexMediaObj =
         '2017-01 hobbiesailing',
         '2019-01 daveexetergraduation'
       ],
-     'tapes' : 
+     'Tapes' : 
       [
         '199110',
         '199111-199112',
