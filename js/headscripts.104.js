@@ -438,7 +438,7 @@ function loadTapeChaptersList(thumbname) {
     const divChaptersOuter = document.createElement('div');
     divChaptersOuter.className = "cssDivThumbsInner";
     divChaptersOuter.onclick = (ev)=>loadVideoFromChapter(ev.target);
-    // cycle thru the tapes chapters array which has elements as array: [start,end,title] ['38995','40489','Garden, Southwood Lane']
+    // cycle thru the tapes chapters array which has elements as array: [start,end,title,hhss] ['38995','40489','Garden, Southwood Lane','2:31']
     gvTapesObj[tapesObjTapesChaptersObj][thumbname].forEach(startEndtitleArray=>{
         const divchapter = document.createElement('div');
         divchapter.className = "cssIndexRow cssBanding";
@@ -446,7 +446,7 @@ function loadTapeChaptersList(thumbname) {
         divchapter.setAttribute('data-thumbname',thumbname);
         // chapter divs use a chapter name
         divchapter.setAttribute('data-chaptername', startEndtitleArray[2]);
-        divchapter.innerText = startEndtitleArray[2];
+        divchapter.innerHTML = startEndtitleArray[2] + ' <span class = "cssTapesChapterDuration">' + startEndtitleArray[3] + '</span>';
         divChaptersOuter.appendChild(divchapter);
     });
     divThumbnailsOuter.appendChild(divChaptersOuter);

@@ -91,7 +91,9 @@ body {
     font-style: italic;
     font-weight: lighter;
 }
-
+.cssTapesChapterDuration {
+    color: var(--colour-selectedTapes,#0dcaf0);
+}
 .cssIndexRow {
     font-size: medium;
     text-align: left;
