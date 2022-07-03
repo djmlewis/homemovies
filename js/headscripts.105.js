@@ -115,6 +115,8 @@ function loadThumbnailsForYear(year) {
     } else if(year === kTitlesIndexName) {
         btnIndexThumbs.hidden = true;
         divThumbnailsOuter.innerHTML = gvIndexHTML;
+        const inner = document.getElementById("divIndexRowsInner");
+        if(!!inner) inner.addEventListener("click",handleIndexRowClickedEvent);
     } else if(year === kFavsName) {
         btnIndexThumbs.hidden = true;
         Object.keys(gvFavouritesObj).sort().forEach(mpegpath => {
@@ -317,10 +319,14 @@ function handleDropdownItemClicked(itemID) {
     }
 }
 
+/*
 function handleIndexClicked(row) {
     loadVideoFromThumbnailObj(row);
 }
-
+*/
+function handleIndexRowClickedEvent(ev) {
+    loadVideoFromThumbnailObj(ev.target);
+}
 function searchIndexFromSearchInput() {
     const searchStr = document.getElementById("input-searchlegend").value.toLowerCase();
     const divIndexRows = document.getElementById("div-indexRows");
@@ -450,9 +456,9 @@ function loadTapeChaptersList(thumbname) {
         divChaptersOuter.appendChild(divchapter);
     });
     divThumbnailsOuter.appendChild(divChaptersOuter);
-    document.getElementById('div-chaptersListTitleDiv').innerHTML = gvTitlesObj[thumbname] +
-        "<span class = 'cssInfoDivTapesChapters'><br>" +
-        "Click clips below to play just that section of tape.<br>There may be a delay in clips loading.</span>";
+    document.getElementById('div-chaptersListTitleDiv').innerHTML = '<div class="cssIndexYearHeaderTapes">' + gvTitlesObj[thumbname] + "</div>" +
+        "<div class = 'cssInfoDivTapesChapters'>" +
+        "Click clips below to play just that section of tape. There may be a delay in clips loading.</div>";
     hideShowChaptersHeader(false);
     clearTimeout(gvTimeoutInfoDivTapesChapters);
     gvTimeoutInfoDivTapesChapters = setTimeout(()=>{

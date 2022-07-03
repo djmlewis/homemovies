@@ -66,7 +66,7 @@ body {
     display: none;
 }
 
-.cssIndexYearHeader, .cssIndexYearHeaderTapes {
+.cssIndexYearHeader {
     width: 100%;
     padding: 2px 0;
     font-size: large;
@@ -81,15 +81,28 @@ body {
     background-color: #c99804;
 }
 .cssIndexYearHeaderTapes {
+    width: 100%;
+    padding: 2px;
+    margin: 0;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    pointer-events: none;
+    cursor: auto;
+    border-radius: 2px;
     background-color: var(--colour-selectedTapes,#0dcaf0);
     line-height: 0.9;
 }
 .cssInfoDivTapesChapters {
-    /*color: var(--colour-selectedTapes,#0dcaf0);*/
-    /*font-family: "Trebuchet MS",sans-serif;*/
+    color: var(--colour-selectedTapes,#0dcaf0);
+    background-color: #212121;
+    font-family: "Trebuchet MS",sans-serif;
+    margin: 0;
     font-size: small;
     font-style: italic;
     font-weight: lighter;
+    text-align: center;
 }
 .cssTapesChapterDuration {
     color: var(--colour-selectedTapes,#0dcaf0);
