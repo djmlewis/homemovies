@@ -17,6 +17,10 @@ const kJPEGpathSuffix = '.jpg';
 
 let gvTimeoutInfoDivTapesChapters = undefined;
 
+let gvArrayTapesViewed;
+const ls_ArrayTapesViewed = "lsArrayTapesViewed";
+
+
 function fqMPEGpath(mpegpath) {
     return kMPEGpathPrefix + mpegpath;
 }

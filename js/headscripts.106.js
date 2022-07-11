@@ -1,5 +1,6 @@
 // call these functions on DOM loaded  -- DOMContentLoaded on DOCUMENT, onload on WINDOW
 document.addEventListener('DOMContentLoaded', function () {
+    loadArrayTapesViewed();
     applySettingsAtStartup();
     buildYearButtons();
 });
@@ -404,9 +405,11 @@ function loadTapesList() {
     gvTapesObj[tapesObjTapesIDsArray].forEach(thumbName=>{
         const divTapesTitle = document.createElement('div');
         divTapesTitle.className = "cssIndexRow cssBanding cssTapesUnselected";
-        divTapesTitle.setAttribute('data-mpegpath',"Tapes/"+thumbName+".mp4");
+        const mpegpath = "Tapes/"+thumbName+".mp4";
+        divTapesTitle.setAttribute('data-mpegpath',mpegpath);
         divTapesTitle.setAttribute('data-thumbname',thumbName);
-        divTapesTitle.innerText = gvTitlesObj[thumbName];
+        const unviewedPrefix = mpegpathInArrayTapesViewed(mpegpath) ? "" : "<span class = 'cssColourColourSelectedTapes'>• </span>";
+        divTapesTitle.innerHTML = unviewedPrefix + gvTitlesObj[thumbName];
         divTapesIDsOuter.appendChild(divTapesTitle);
     });
     document.getElementById('div-thumbnailsouter').appendChild(divTapesIDsOuter);
@@ -421,6 +424,7 @@ function loadVideoFromTapeDiv(seltapeDiv) {
     const thumbName = thumbNameFromMPEGpath(mpegpath);//seltapeDiv.getAttribute('data-thumbName');
     const year = kTitlesTapesName;
     const jpegpath = jpegpathFromMPEGpath(mpegpath);
+    addMPEGpathToArrayTapesViewed(mpegpath);
     setVideoPoster(videoMain,mpegpath,jpegpath);
     videoMain.src = mpegpath;
     divthumbname.setAttribute('data-thumbName',thumbName);

@@ -126,4 +126,27 @@ function handleClearFavsClicked() {
     if(favsIsSelectedYear()) loadThumbnailsForYear(kFavsName);
 }
 
+function loadArrayTapesViewed(){
+    if(!!localStorage.getItem(ls_ArrayTapesViewed)) gvArrayTapesViewed = JSON.parse(localStorage.getItem(ls_ArrayTapesViewed));
+    else gvArrayTapesViewed = [];
+}
+function saveArrayTapesViewed(){
+    if(!!gvArrayTapesViewed) localStorage.setItem(ls_ArrayTapesViewed, JSON.stringify(gvArrayTapesViewed));
+    else localStorage.setItem(ls_ArrayTapesViewed, JSON.stringify([]));
+}
+
+function mpegpathInArrayTapesViewed(mpegpath) {
+    if(!!gvArrayTapesViewed) return gvArrayTapesViewed.includes(shortMPEGpath(mpegpath));
+    return false;
+}
+
+function addMPEGpathToArrayTapesViewed(mpegpath) {
+    const shortmpp = shortMPEGpath(mpegpath);
+    if(!!gvArrayTapesViewed) gvArrayTapesViewed.push(shortmpp);
+    else gvArrayTapesViewed = [shortmpp];
+    saveArrayTapesViewed();
+}
+
+
 loadFavourites();
+
