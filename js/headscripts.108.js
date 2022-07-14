@@ -479,8 +479,8 @@ function loadVideoFromChapter(chapterDiv) {
     const thumbName = thumbNameFromMPEGpath(mpegpath);//chapterDiv.getAttribute('data-thumbName');
     const chaptername = chapterDiv.getAttribute('data-chaptername');
     const year = kTitlesTapesName;
-    const jpegpath = jpegpathFromMPEGpath(mpegpath);//chapterDiv.getAttribute('data-jpegpath');
-    setVideoPoster(videoMain,mpegpath,jpegpath);
+    //const jpegpath = jpegpathFromMPEGpath(mpegpath);//chapterDiv.getAttribute('data-jpegpath');
+    videoMain.removeAttribute('poster');// dont setVideoPoster(videoMain,mpegpath,jpegpath); as it flashes the start jpeg before loading
     videoMain.src = mpegpath;
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
