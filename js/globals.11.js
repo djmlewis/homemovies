@@ -19,7 +19,7 @@ let gvTimeoutInfoDivTapesChapters = undefined;
 
 let gvArrayTapesViewed;
 const ls_ArrayTapesViewed = "lsArrayTapesViewed";
-
+const kSymbolUnviewed = "✵";
 
 function fqMPEGpath(mpegpath) {
     return kMPEGpathPrefix + mpegpath;

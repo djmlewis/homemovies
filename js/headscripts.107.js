@@ -408,7 +408,7 @@ function loadTapesList() {
         const mpegpath = "Tapes/"+thumbName+".mp4";
         divTapesTitle.setAttribute('data-mpegpath',mpegpath);
         divTapesTitle.setAttribute('data-thumbname',thumbName);
-        const unviewedPrefix = mpegpathInArrayTapesViewed(mpegpath) ? "" : "<span class = 'cssColourColourSelectedTapes'>• </span>";
+        const unviewedPrefix = mpegpathInArrayTapesViewed(mpegpath) ? "" : "<span class = 'cssColourColourSelectedTapes'>" + kSymbolUnviewed + " </span>";
         divTapesTitle.innerHTML = unviewedPrefix + gvTitlesObj[thumbName];
         divTapesIDsOuter.appendChild(divTapesTitle);
     });
