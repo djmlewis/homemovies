@@ -240,7 +240,7 @@ function loadVideoFromThumbnailObj(thumbnail) {
     const year = yearFromMPEGpath(mpegpath);//thumbnail.getAttribute('data-year');
     const jpegpath = jpegpathFromMPEGpath(mpegpath);//thumbnail.getAttribute('data-jpegpath');
     setVideoPoster(videoMain, mpegpath,jpegpath);
-    videoMain.src = mpegpath;
+    loadPlayerWithMPEGpath(videoMain,mpegpath);//videoMain.src = mpegpath;
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
     divthumbname.setAttribute('data-mpegpath',mpegpath);
@@ -426,7 +426,7 @@ function loadVideoFromTapeDiv(seltapeDiv) {
     const jpegpath = jpegpathFromMPEGpath(mpegpath);
     addMPEGpathToArrayTapesViewed(mpegpath);
     setVideoPoster(videoMain,mpegpath,jpegpath);
-    videoMain.src = mpegpath;
+    loadPlayerWithMPEGpath(videoMain,mpegpath);//videoMain.src = mpegpath;
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
     divthumbname.setAttribute('data-mpegpath',mpegpath);
@@ -481,7 +481,7 @@ function loadVideoFromChapter(chapterDiv) {
     const year = kTitlesTapesName;
     //const jpegpath = jpegpathFromMPEGpath(mpegpath);//chapterDiv.getAttribute('data-jpegpath');
     videoMain.removeAttribute('poster');// dont setVideoPoster(videoMain,mpegpath,jpegpath); as it flashes the start jpeg before loading
-    videoMain.src = mpegpath;
+    loadPlayerWithMPEGpath(videoMain,mpegpath);//videoMain.src = mpegpath;
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
     divthumbname.setAttribute('data-mpegpath',mpegpath);
@@ -506,4 +506,8 @@ function hideShowChaptersHeader(hide) {
     document.getElementById('btn-BackToTapesTitles').hidden = hide;
     document.getElementById('div-chaptersListTitleDiv').hidden = hide;
     if(hide) document.getElementById('div-chaptersListTitleDiv').innerHTML = "";
+}
+
+function loadPlayerWithMPEGpath(player,mpegpath) {
+    player.src = mpegpath;
 }
