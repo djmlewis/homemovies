@@ -507,7 +507,16 @@ function goBackToTapesTitles() {
 }
 
 function hideShowTapesHeader(hideBackToTapesBtn,hideHiResSwitch) {
-    document.getElementById('div-TapesSettings').hidden = hideHiResSwitch;
+    const divTapesSettings = document.getElementById('div-TapesSettings');
+    const divTapesSettingsFlex = document.getElementById('div-TapesSettingsFlex');
+    divTapesSettings.hidden = hideHiResSwitch;
+    if(hideBackToTapesBtn) {
+        divTapesSettingsFlex.classList.remove('justify-content-between');
+        divTapesSettingsFlex.classList.add('justify-content-end');
+    } else {
+        divTapesSettingsFlex.classList.add('justify-content-between');
+        divTapesSettingsFlex.classList.remove('justify-content-end');
+    }
     document.getElementById('btn-BackToTapesTitles').hidden = hideBackToTapesBtn;
     document.getElementById('div-chaptersListTitleDiv').hidden = hideBackToTapesBtn;
     if(hideBackToTapesBtn) document.getElementById('div-chaptersListTitleDiv').innerHTML = "";

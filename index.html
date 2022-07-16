@@ -22,7 +22,7 @@
     <script src="js/gvIndexHTML.114.js" defer></script>
     <script src="js/tapesObj.76.js"></script>
     <script src="js/favourites.15.js" defer></script>
-    <script src="js/headscripts.110.js" defer></script>
+    <script src="js/headscripts.111.js" defer></script>
 
 
 </head>
@@ -74,17 +74,17 @@
                 <button id="btn-ThumbsIndex" type="button" class="btn btn-sm btn-outline-warning" onclick="toggleIndexThumbs(this)"
                         style="margin-left:auto;margin-right:auto;min-height: 32px;!important;">Show Titles</button>
                 <div id="div-TapesSettings">
-                    <div class="d-flex flex-row my-1 align-items-center justify-content-evenly">
+                    <div id="div-TapesSettingsFlex" class="d-flex flex-row my-1 align-items-center justify-content-end">
+                        <div hidden id="btn-BackToTapesTitles">
+                            <button  type="button" class="btn btn-sm btn-outline-info"
+                                     style="margin-left: auto; margin-right: auto; min-height: 32px; !important;"
+                                     onclick="goBackToTapesTitles()">Show Tapes List
+                            </button>
+                        </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="switchHiRes" checked
                             onchange="switchHiResChanged(this)">
                             <label class="form-check-label cssColourColourSelectedTapes" for="switchHiRes">HiRes Video</label>
-                        </div>
-                        <div hidden id="btn-BackToTapesTitles">
-                            <button  type="button" class="btn btn-sm btn-outline-info"
-                                    style="margin-left: auto; margin-right: auto; min-height: 32px; !important;"
-                                    onclick="goBackToTapesTitles()">Show Tapes List
-                            </button>
                         </div>
                     </div>
                 </div>
