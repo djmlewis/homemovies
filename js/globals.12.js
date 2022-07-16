@@ -21,6 +21,11 @@ let gvArrayTapesViewed;
 const ls_ArrayTapesViewed = "lsArrayTapesViewed";
 const kSymbolUnviewed = "✵";
 
+const ls_switchHiResBool = "ls_switchHiResBool";
+const kBoolStrTrue = "T";
+const kBoolStrFalse = "F";
+
+
 function fqMPEGpath(mpegpath) {
     return kMPEGpathPrefix + mpegpath;
 }

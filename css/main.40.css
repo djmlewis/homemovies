@@ -14,12 +14,20 @@ body {
     min-height: 100%;
     */
 }
-
+.cssColourSelected {
+    color: var(--colour-selected,#ffc107);
+}
+.cssBackgroundColourSelected {
+    background-color: var(--colour-selected,#ffc107);
+}
 .cssColourColourSelected {
     color: var(--colour-selected,#ffc107);
 }
 .cssColourColourSelectedTapes {
     color: var(--colour-selectedTapes, #0dcaf0);
+}
+.cssBackgroundColourSelectedTapes {
+    background-color: var(--colour-selectedTapes, #0dcaf0);
 }
 
 .btn-dark-yellow,.btn-dark-yellow:focus, .btn-dark-yellow:active, .btn-dark-yellow.active {
@@ -260,12 +268,6 @@ body {
 }
 .cssFavsUnselected {
     color: var(--colour-selectedFavs,#ff2f92); !important;
-}
-.cssColourSelected {
-    color: var(--colour-selected,#ffc107);
-}
-.cssBackgroundColourSelected {
-    background-color: var(--colour-selected,#ffc107);
 }
 .cssImgFavourite, .cssImgShare {
     cursor: pointer;

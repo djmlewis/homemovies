@@ -10,6 +10,8 @@ window.addEventListener('load', function () {
     window.addEventListener('resize',()=>handleWindowResize());
     hideShowBtnThumbsIndex();
     handleDivVideoResize();
+    if(!localStorage.getItem(ls_switchHiResBool)) localStorage.setItem(ls_switchHiResBool,kBoolStrTrue);
+    document.getElementById('switchHiRes').checked = localStorage.getItem(ls_switchHiResBool) === kBoolStrTrue;
 });
 
 function applySettingsAtStartup() {
@@ -110,7 +112,7 @@ function loadThumbnailsForYear(year) {
     const btnIndexThumbs = document.getElementById('btn-ThumbsIndex');
     btnIndexThumbs.innerText = 'Show Titles';
     btnIndexThumbs.hidden = true;
-    hideShowChaptersHeader(true);
+    hideShowTapesHeader(true,true);
     if(year === kTitlesTapesName) {
         loadTapesList();
     } else if(year === kTitlesIndexName) {
@@ -413,6 +415,7 @@ function loadTapesList() {
         divTapesIDsOuter.appendChild(divTapesTitle);
     });
     document.getElementById('div-thumbnailsouter').appendChild(divTapesIDsOuter);
+    hideShowTapesHeader(true,false);
 }
 
 
@@ -449,7 +452,7 @@ function loadTapeChaptersList(thumbname) {
     divChaptersOuter.className = "cssDivThumbsInner";
     divChaptersOuter.onclick = (ev)=>loadVideoFromChapter(ev.target);
     // cycle thru the tapes chapters array which has elements as array: [start,end,title,hhss] ['38995','40489','Garden, Southwood Lane','2:31']
-    gvTapesObj[tapesObjTapesChaptersObj][thumbname].forEach(startEndtitleArray=>{
+    if(!!gvTapesObj[tapesObjTapesChaptersObj][thumbname]) gvTapesObj[tapesObjTapesChaptersObj][thumbname].forEach(startEndtitleArray=>{
         const divchapter = document.createElement('div');
         divchapter.className = "cssIndexRow cssBanding";
         divchapter.setAttribute('data-mpegpath',"Tapes/" + thumbname+".mp4"+"#t=" + startEndtitleArray[0] + "," + startEndtitleArray[1]);
@@ -462,8 +465,9 @@ function loadTapeChaptersList(thumbname) {
     divThumbnailsOuter.appendChild(divChaptersOuter);
     document.getElementById('div-chaptersListTitleDiv').innerHTML = '<div class="cssIndexYearHeaderTapes">' + gvTitlesObj[thumbname] + "</div>" +
         "<div class = 'cssInfoDivTapesChapters'>" +
-        "Click clips below to play just that section of tape. There may be a delay in clips loading.</div>";
-    hideShowChaptersHeader(false);
+        "Click clips below to play just that section of tape. There may be a delay in clips loading. " +
+        "Turn off HiRes Video to speed-up loading</div>";
+    hideShowTapesHeader(false,false);
     clearTimeout(gvTimeoutInfoDivTapesChapters);
     gvTimeoutInfoDivTapesChapters = setTimeout(()=>{
         gvTimeoutInfoDivTapesChapters = undefined;
@@ -497,17 +501,28 @@ function loadVideoFromChapter(chapterDiv) {
 }
 
 function goBackToTapesTitles() {
-    hideShowChaptersHeader(true);
+    hideShowTapesHeader(true,false);
     document.getElementById('div-thumbnailsouter').innerHTML = '';
     loadTapesList();
 }
 
-function hideShowChaptersHeader(hide) {
-    document.getElementById('btn-BackToTapesTitles').hidden = hide;
-    document.getElementById('div-chaptersListTitleDiv').hidden = hide;
-    if(hide) document.getElementById('div-chaptersListTitleDiv').innerHTML = "";
+function hideShowTapesHeader(hideBackToTapesBtn,hideHiResSwitch) {
+    document.getElementById('div-TapesSettings').hidden = hideHiResSwitch;
+    document.getElementById('btn-BackToTapesTitles').hidden = hideBackToTapesBtn;
+    document.getElementById('div-chaptersListTitleDiv').hidden = hideBackToTapesBtn;
+    if(hideBackToTapesBtn) document.getElementById('div-chaptersListTitleDiv').innerHTML = "";
 }
 
 function loadPlayerWithMPEGpath(player,mpegpath) {
+    if(document.getElementById("switchHiRes").checked === false) {
+        mpegpath = mpegpath.replace("Tapes","TapesLoRes");
+    }
     player.src = mpegpath;
+}
+
+function switchHiResChanged(swHiRes) {
+    localStorage.setItem(ls_switchHiResBool, swHiRes.checked ? kBoolStrTrue : kBoolStrFalse);
+    const videoMain = document.getElementById('video-main');
+    if(videoMain.src.includes("Tapes/")) videoMain.src = videoMain.src.replace("Tapes","TapesLoRes");
+    else if(videoMain.src.includes("TapesLoRes")) videoMain.src = videoMain.src.replace("TapesLoRes","Tapes");
 }

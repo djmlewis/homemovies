@@ -13,16 +13,16 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.39.css">
+    <link rel="stylesheet" href="css/main.40.css">
 
     <!-- my scripts -->
-    <script src="js/globals.11.js" defer></script>
-    <script src="js/indexmedia.105.js" defer></script>
-    <script src="js/indexTitles.83.js" defer></script>
-    <script src="js/gvIndexHTML.108.js" defer></script>
-    <script src="js/tapesObj.70.js"></script>
+    <script src="js/globals.12.js" defer></script>
+    <script src="js/indexmedia.108.js" defer></script>
+    <script src="js/indexTitles.86.js" defer></script>
+    <script src="js/gvIndexHTML.111.js" defer></script>
+    <script src="js/tapesObj.73.js"></script>
     <script src="js/favourites.15.js" defer></script>
-    <script src="js/headscripts.109.js" defer></script>
+    <script src="js/headscripts.110.js" defer></script>
 
 
 </head>
@@ -71,12 +71,24 @@
         </div>
         <div id="col-thumbnails" class="col-12 col-sm-4 d-flex flex-column cssColThumbnails">
             <div class="sticky-top d-flex flex-column">
-            <button id="btn-ThumbsIndex" type="button" class="btn btn-sm btn-outline-warning" onclick="toggleIndexThumbs(this)"
-                    style="margin-left:auto;margin-right:auto;min-height: 32px;!important;">Show Titles</button>
-            <button hidden id="btn-BackToTapesTitles" type="button" class="btn btn-sm btn-outline-info my-1"
-                    style="margin-left: auto; margin-right: auto; min-height: 32px; !important;"
-                    onclick="goBackToTapesTitles()">Show Tapes List</button>
-            <div id="div-chaptersListTitleDiv"></div>
+                <button id="btn-ThumbsIndex" type="button" class="btn btn-sm btn-outline-warning" onclick="toggleIndexThumbs(this)"
+                        style="margin-left:auto;margin-right:auto;min-height: 32px;!important;">Show Titles</button>
+                <div id="div-TapesSettings">
+                    <div class="d-flex flex-row my-1 align-items-center justify-content-evenly">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchHiRes" checked
+                            onchange="switchHiResChanged(this)">
+                            <label class="form-check-label cssColourColourSelectedTapes" for="switchHiRes">HiRes Video</label>
+                        </div>
+                        <div hidden id="btn-BackToTapesTitles">
+                            <button  type="button" class="btn btn-sm btn-outline-info"
+                                    style="margin-left: auto; margin-right: auto; min-height: 32px; !important;"
+                                    onclick="goBackToTapesTitles()">Show Tapes List
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="div-chaptersListTitleDiv"></div>
             </div>
             <noscript>
                 <div class="text-white text-center bg-danger p-3">This app requires that JavaScript be enabled - use your device or browser settings to enable JavaScript, and then reload this page.</div>
