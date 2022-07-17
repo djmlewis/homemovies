@@ -39,6 +39,7 @@ function buildYearButtons() {
     });
     addIndexYearButton(divYears);
     addTapesYearButton(divYears);
+    addTapesIndexYearButton(divYears);
     addFavsYearButton(divYears);
     // set the selected year
     const btns = Array.from(divYears.getElementsByClassName('cssYearBtn'));
@@ -61,6 +62,15 @@ function addFavsYearButton(divYears) {
     btn.onclick = handleYearClicked;
     divYears.appendChild(btn);
 }
+function addIndexYearButton(divYears) {
+    let btn = document.createElement('div');
+    btn.className = 'cssYearBtn cssYearUnselected';
+    btn.innerText = kTitlesIndexName;
+    btn.setAttribute('data-year',kTitlesIndexName);
+    btn.onclick = (ev)=>{handleYearClicked(ev)};
+    divYears.appendChild(btn);
+}
+
 function addTapesYearButton(divYears) {
     let btn = document.createElement('div');
     btn.className = 'cssYearBtn cssYearUnselected cssTapesUnselected';
@@ -70,11 +80,11 @@ function addTapesYearButton(divYears) {
     divYears.appendChild(btn);
 }
 
-function addIndexYearButton(divYears) {
+function addTapesIndexYearButton(divYears) {
     let btn = document.createElement('div');
-    btn.className = 'cssYearBtn cssYearUnselected';
-    btn.innerText = kTitlesIndexName;
-    btn.setAttribute('data-year',kTitlesIndexName);
+    btn.className = 'cssYearBtn cssYearUnselected cssTapesUnselected';
+    btn.innerText = kTapesTitlesIndexName;
+    btn.setAttribute('data-year',kTapesTitlesIndexName);
     btn.onclick = (ev)=>{handleYearClicked(ev)};
     divYears.appendChild(btn);
 }
@@ -115,12 +125,19 @@ function loadThumbnailsForYear(year) {
     hideShowTapesHeader(true,true);
     if(year === kTitlesTapesName) {
         loadTapesList();
+    } else if(year === kTapesTitlesIndexName) {
+        hideShowTapesHeader(true,false);
+        btnIndexThumbs.hidden = true;
+        divThumbnailsOuter.innerHTML = gvTapesIndexHTML;
+        const inner = document.getElementById("divIndexRowsInner");
+        if(!!inner) inner.addEventListener("click",handleIndexRowClickedEvent);
     } else if(year === kTitlesIndexName) {
         btnIndexThumbs.hidden = true;
         divThumbnailsOuter.innerHTML = gvIndexHTML;
         const inner = document.getElementById("divIndexRowsInner");
         if(!!inner) inner.addEventListener("click",handleIndexRowClickedEvent);
     } else if(year === kFavsName) {
+        hideShowTapesHeader(true,false);
         btnIndexThumbs.hidden = true;
         Object.keys(gvFavouritesObj).sort().forEach(mpegpath => {
             divThumbnailsOuter.appendChild(thumnNailDivForFavourite(mpegpath,gvFavouritesObj[mpegpath]));//gvFavouritesObj[mpegpath] value is chaptername
@@ -176,11 +193,14 @@ function thumnNailDivForFavourite(mpegpath, chapterName) {
     imgdiv.appendChild(img);
 
     if(yearFromMPEGpath(mpegpath) === kTitlesTapesName) {
+        const divchapterOuter = document.createElement('div');
+        divchapterOuter.className = "cssDivChapterName d-flex align-items-center ";
         const divchaptername = document.createElement('div');
+        divchaptername.className = "bg-dark my-auto";
         if(chapterName != null && chapterName.length>0) divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+':</span> '+chapterName ;
         else divchaptername.innerHTML = '<span class="cssTapeTitleText">'+gvTitlesObj[thumbName]+'</span>';
-        divchaptername.className = "cssDivChapterName ";
-        imgdiv.appendChild(divchaptername);
+        divchapterOuter.appendChild(divchaptername);
+        imgdiv.appendChild(divchapterOuter);
     }
     return imgdiv;
 }
@@ -202,7 +222,7 @@ function toggleYearBtnSelected(btn,selected) {
         // we need cssYearSelected to identify btn as selected!!!
         btn.classList.add('cssYearSelected');
         // overlay cssYearSelectedTapes or cssYearSelectedFavs
-        if(btn.innerText === kTitlesTapesName) btn.classList.add('cssYearSelectedTapes');
+        if(btn.innerText === kTitlesTapesName || btn.innerText === kTapesTitlesIndexName) btn.classList.add('cssYearSelectedTapes');
         if(btn.innerText === kFavsName) btn.classList.add('cssYearSelectedFavs');
         btn.classList.remove('cssYearUnselected');
         btn.classList.remove('cssTapesUnselected');
@@ -212,7 +232,7 @@ function toggleYearBtnSelected(btn,selected) {
         btn.classList.remove('cssYearSelectedTapes');
         btn.classList.remove('cssYearSelectedFavs');
         btn.classList.add('cssYearUnselected');
-        if(btn.innerText === kTitlesTapesName) btn.classList.add('cssTapesUnselected');
+        if(btn.innerText === kTitlesTapesName || btn.innerText === kTapesTitlesIndexName) btn.classList.add('cssTapesUnselected');
         if(btn.innerText === kFavsName) btn.classList.add('cssFavsUnselected');
     }
 }
@@ -237,7 +257,25 @@ function loadVideoFromThumbnailObj(thumbnail) {
     const divthumbname = document.getElementById('div-thumbName');
     const videoMain = document.getElementById('video-main');
     const btndownload = document.getElementById('img-downloadvideo');
-    const mpegpath = fqMPEGpath(thumbnail.getAttribute('data-mpegpath'));
+
+    // we need to switch according to we are called from a TapesIndexRow which has a chapter row number in data-indx,  or from elsewhere which lacks data-indx
+    let mpegpath;
+    let chapterName;
+    if(!!thumbnail.getAttribute('data-indx')) {
+        // lookup the chapter by tapeThumbname (tape fn) and indx (in array of chapters)
+        const indx = parseInt(thumbnail.getAttribute('data-indx'));
+        const tapeThumbName = thumbnail.getAttribute('data-tapeThumbName');
+        if(!!gvTapesObj[tapesObjTapesChaptersObj][tapeThumbName]) {
+            const startEndtitleArray = gvTapesObj[tapesObjTapesChaptersObj][tapeThumbName][indx];
+            mpegpath = kMPEGpathPrefix + "Tapes/" + tapeThumbName + ".mp4" + "#t=" + startEndtitleArray[0] + "," + startEndtitleArray[1];
+            chapterName = startEndtitleArray[2];
+            // we MUST set divthumbname.setAttribute('data-chaptername', chapterName) from TapesIndex row to allow correct Favs save
+            divthumbname.setAttribute('data-chaptername', chapterName);
+        }
+    } else {
+        mpegpath = fqMPEGpath(thumbnail.getAttribute('data-mpegpath'));
+        chapterName = thumbnail.getAttribute('data-chaptername');
+    }
     const thumbName = thumbNameFromMPEGpath(mpegpath);//thumbnail.getAttribute('data-thumbName');
     const year = yearFromMPEGpath(mpegpath);//thumbnail.getAttribute('data-year');
     const jpegpath = jpegpathFromMPEGpath(mpegpath);//thumbnail.getAttribute('data-jpegpath');
@@ -246,7 +284,8 @@ function loadVideoFromThumbnailObj(thumbnail) {
     divthumbname.setAttribute('data-thumbName',thumbName);
     divthumbname.setAttribute('data-year',year);
     divthumbname.setAttribute('data-mpegpath',mpegpath);
-    setThumbnameForID(divthumbname,thumbName,year,thumbnail.getAttribute('data-chaptername'));
+    // we dont set divthumbname.setAttribute('data-chaptername', chapterName) as not from TapesIndex row
+    setThumbnameForID(divthumbname,thumbName,year,chapterName);
     document.getElementById('img-favourite').hidden = false;
     btndownload.hidden = false;
     btndownload.setAttribute('data-mpegpath', mpegpath);
@@ -255,6 +294,7 @@ function loadVideoFromThumbnailObj(thumbnail) {
 }
 
 function setThumbnameForID(divthumbname, thumbName,year,description) {
+    // comper null with == and NOT ===
     if(description == null || description.length ===0) {
         if(!!gvTitlesObj[thumbName]) {
             if(year === 'Tapes') divthumbname.innerHTML = '<span class="cssTapesUnselected">' + gvTitlesObj[thumbName] + '</span>';
@@ -297,7 +337,7 @@ function handleDivVideoResize() {
 
 function hideShowBtnThumbsIndex() {
     const btnThumbsIndex = document.getElementById('btn-ThumbsIndex');
-    btnThumbsIndex.hidden = indexIsSelectedYear() || favsIsSelectedYear() || tapesIsSelectedYear();
+    btnThumbsIndex.hidden = indexIsSelectedYear() || favsIsSelectedYear() || tapesIsSelectedYear() || tapesIndexIsSelectedYear();
 }
 
 function isLandscape() {
@@ -334,7 +374,7 @@ function searchIndexFromSearchInput() {
     const searchStr = document.getElementById("input-searchlegend").value.toLowerCase();
     const divIndexRows = document.getElementById("div-indexRows");
     if (searchStr.length > 0) {
-        Array.from(divIndexRows.getElementsByClassName('cssIndexYearHeader')).forEach(para=>{para.hidden = true;});
+        Array.from(divIndexRows.getElementsByClassName('cssIndexHeader')).forEach(para=>{para.hidden = true;});
         let counter = 1;
         Array.from(divIndexRows.getElementsByClassName('cssIndexRow')).forEach((para)=>{
             const found = para.innerText.toLowerCase().includes(searchStr) === true;
@@ -354,9 +394,7 @@ function searchIndexFromSearchInput() {
 
 function clearSearchIndex() {
     document.getElementById("input-searchlegend").value = '';
-    Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexYearHeader')).forEach(para=>{
-        para.hidden = false;
-    });
+    Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexHeader')).forEach(para=>{para.hidden = false;});
     Array.from(document.getElementById("div-indexRows").getElementsByClassName('cssIndexRow')).forEach(para=>{
         para.classList.add('cssBanding');
         para.hidden = false;
@@ -387,6 +425,10 @@ function indexIsSelectedYear() {
 }
 function tapesIsSelectedYear() {
     return selectedYearButtonIsNamed(kTitlesTapesName);
+}
+
+function tapesIndexIsSelectedYear() {
+    return selectedYearButtonIsNamed(kTapesTitlesIndexName);
 }
 
 function handleDownloadVideoClicked() {

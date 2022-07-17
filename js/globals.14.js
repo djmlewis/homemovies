@@ -5,6 +5,7 @@ const ls_yearButtonName = "ls_yearButtonName";
 const kFavsName = '♥︎';
 const kTitlesIndexName = 'Index︎';
 const kTitlesTapesName = 'Tapes';
+const kTapesTitlesIndexName = ' Index ︎';
 const tapesObjTapesIDsArray = 'tapesIDsArray';
 const tapesObjTapesChaptersObj = 'tapesChaptersObj';
 

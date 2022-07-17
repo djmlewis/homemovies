@@ -71,17 +71,18 @@ body {
 }
 
 
+/*
 .cssIndexYearHeader {
     font-family: "Trebuchet MS",sans-serif;
     overflow: hidden;
     width: 100%;
 }
-
-.cssIndexYearHeader + .cssIndexYearHeader {
-    display: none;
-}
+*/
+/* cssIndexHeader is just used to seatrch */
 
 .cssIndexYearHeader {
+    font-family: "Trebuchet MS",sans-serif;
+    overflow: hidden;
     width: 100%;
     padding: 2px 0;
     font-size: large;
@@ -92,9 +93,13 @@ body {
     cursor: auto;
     border-radius: 2px;
 }
+.cssIndexYearHeader + .cssIndexYearHeader {
+    display: none;
+}
 .cssIndexYearHeader {
     background-color: #c99804;
 }
+
 .cssIndexYearHeaderTapes {
     width: 100%;
     padding: 2px;
@@ -109,6 +114,10 @@ body {
     background-color: var(--colour-selectedTapes,#0dcaf0);
     line-height: 0.9;
 }
+.cssIndexYearHeaderTapes + .cssIndexYearHeaderTapes { /*I dont think this is used*/
+    display: none;
+}
+
 .cssInfoDivTapesChapters {
     color: var(--colour-selectedTapes,#0dcaf0);
     background-color: #212121;
@@ -226,7 +235,7 @@ body {
     max-width: 100%;
     min-width: 100%;
     pointer-events: none;
-    height: auto;
+    height: 100%;
     max-height: 100%;!important;
     overflow-y: hidden;
 }

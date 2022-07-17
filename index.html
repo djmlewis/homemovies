@@ -13,16 +13,17 @@
     <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
 
     <!-- my css -->
-    <link rel="stylesheet" href="css/main.40.css">
+    <link rel="stylesheet" href="css/main.41.css">
 
     <!-- my scripts -->
-    <script src="js/globals.12.js" defer></script>
-    <script src="js/indexmedia.111.js" defer></script>
-    <script src="js/indexTitles.89.js" defer></script>
-    <script src="js/gvIndexHTML.114.js" defer></script>
-    <script src="js/tapesObj.76.js"></script>
+    <script src="js/globals.14.js" defer></script>
+    <script src="js/indexmedia.115.js" defer></script>
+    <script src="js/indexTitles.93.js" defer></script>
+    <script src="js/gvIndexHTML.118.js" defer></script>
+    <script src="js/gvTapesIndexHTML.15.js"></script>
+    <script src="js/tapesObj.80.js"></script>
     <script src="js/favourites.15.js" defer></script>
-    <script src="js/headscripts.111.js" defer></script>
+    <script src="js/headscripts.112.js" defer></script>
 
 
 </head>
@@ -71,9 +72,9 @@
         </div>
         <div id="col-thumbnails" class="col-12 col-sm-4 d-flex flex-column cssColThumbnails">
             <div class="sticky-top d-flex flex-column">
-                <button id="btn-ThumbsIndex" type="button" class="btn btn-sm btn-outline-warning" onclick="toggleIndexThumbs(this)"
+                <button hidden id="btn-ThumbsIndex" type="button" class="btn btn-sm btn-outline-warning" onclick="toggleIndexThumbs(this)"
                         style="margin-left:auto;margin-right:auto;min-height: 32px;!important;">Show Titles</button>
-                <div id="div-TapesSettings">
+                <div hidden id="div-TapesSettings">
                     <div id="div-TapesSettingsFlex" class="d-flex flex-row my-1 align-items-center justify-content-end">
                         <div hidden id="btn-BackToTapesTitles">
                             <button  type="button" class="btn btn-sm btn-outline-info"
@@ -84,7 +85,9 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="switchHiRes" checked
                             onchange="switchHiResChanged(this)">
-                            <label class="form-check-label cssColourColourSelectedTapes" for="switchHiRes">HiRes Video</label>
+                            <label class="form-check-label cssColourColourSelectedTapes" for="switchHiRes"
+                            title="Turn off HiRes Video to speed-up loading of Tapes"
+                            >HiRes Video</label>
                         </div>
                     </div>
                 </div>
