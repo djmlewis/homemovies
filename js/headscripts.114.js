@@ -91,7 +91,9 @@ function addTapesIndexYearButton(divYears) {
 
 function loadIndexForYear(year) {
     const divThumbnails = document.getElementById('div-thumbnailsouter');
-    divThumbnails.innerHTML = gvIndexHTML;
+    loadCorrectGvIndexHTMLToDivOuter(gvIndexHTML,divThumbnails);
+    // hide the This is and index for... Div using cssIndexSurtitle limit to divThumbnails
+    Array.from(divThumbnails.getElementsByClassName('cssIndexSurtitle')).forEach(surtitle=>{surtitle.hidden = true;});
     divThumbnails.scrollTop = 0;
     document.getElementById('div-indexSearch').hidden = true;
     filterIndexByYear(year)
@@ -99,7 +101,7 @@ function loadIndexForYear(year) {
 
 function filterIndexByYear(year) {
     const divIndexRows = document.getElementById("div-indexRows");
-    Array.from(divIndexRows.getElementsByClassName('cssIndexYearHeader')).forEach(para=>{para.hidden = true;});
+    Array.from(divIndexRows.getElementsByClassName('cssIndexHeader')).forEach(para=>{para.hidden = true;});
     let counter = 1;
     Array.from(divIndexRows.getElementsByClassName('cssIndexRow')).forEach((para)=>{
         const found = yearFromMPEGpath(para.getAttribute('data-mpegpath')).includes(year) === true;
@@ -116,6 +118,12 @@ function filterIndexByYear(year) {
     });
 }
 
+function loadCorrectGvIndexHTMLToDivOuter(indexToLoad,divThumbnailsOuter) {
+    divThumbnailsOuter.innerHTML = indexToLoad;
+    const inner = document.getElementById("divIndexRowsInner");
+    if(!!inner) inner.addEventListener("click",handleIndexRowClickedEvent);
+}
+
 function loadThumbnailsForYear(year) {
     const divThumbnailsOuter = document.getElementById('div-thumbnailsouter');
     divThumbnailsOuter.innerHTML = '';
@@ -128,14 +136,10 @@ function loadThumbnailsForYear(year) {
     } else if(year === kTapesTitlesIndexName) {
         hideShowTapesHeader(true,false);
         btnIndexThumbs.hidden = true;
-        divThumbnailsOuter.innerHTML = gvTapesIndexHTML;
-        const inner = document.getElementById("divIndexRowsInner");
-        if(!!inner) inner.addEventListener("click",handleIndexRowClickedEvent);
+        loadCorrectGvIndexHTMLToDivOuter(gvTapesIndexHTML,divThumbnailsOuter);
     } else if(year === kTitlesIndexName) {
         btnIndexThumbs.hidden = true;
-        divThumbnailsOuter.innerHTML = gvIndexHTML;
-        const inner = document.getElementById("divIndexRowsInner");
-        if(!!inner) inner.addEventListener("click",handleIndexRowClickedEvent);
+        loadCorrectGvIndexHTMLToDivOuter(gvIndexHTML,divThumbnailsOuter);
     } else if(year === kFavsName) {
         hideShowTapesHeader(true,false);
         btnIndexThumbs.hidden = true;
