@@ -28,6 +28,7 @@ const kBoolStrFalse = "F";
 
 
 function fqMPEGpath(mpegpath) {
+    if(mpegpath.includes(kMPEGpathPrefix)) return  mpegpath;
     return kMPEGpathPrefix + mpegpath;
 }
 function shortMPEGpath(mpegpath) {
