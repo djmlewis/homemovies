@@ -436,15 +436,23 @@ function tapesIndexIsSelectedYear() {
 }
 
 function handleDownloadVideoClicked() {
-    const btndownload = document.getElementById('img-downloadvideo');
+    const mpegpath = fqMPEGpath(document.getElementById('img-downloadvideo').getAttribute('data-mpegpath'));
+    if(mpegpath.includes('Tapes') && !mpegpath.includes('#')) {
+        if(confirm('The entire video file (~1 GB+) will be downloaded. Do you wish to continue?'))
+            completeDownloadVideo(mpegpath);
+    } else if(mpegpath.includes('#')) {
+        if(confirm('The entire video file (~1 GB+) will be downloaded and not just this clip. Do you wish to continue?'))
+            completeDownloadVideo(mpegpath);
+    } else completeDownloadVideo(mpegpath);
+}
+function completeDownloadVideo(mpegpath){
     const anchor = document.createElement('a');
-    anchor.href = fqMPEGpath(btndownload.getAttribute('data-mpegpath'));
-    anchor.download = btndownload.getAttribute('data-thumbname')+'.mp4';
+    anchor.href = mpegpath;
+    anchor.download = thumbNameFromMPEGpath(mpegpath);
     document.body.appendChild(anchor);
     anchor.click();
     document.body.removeChild(anchor);
 }
-
 function loadTapesList() {
     document.getElementById('btn-ThumbsIndex').hidden = true;
     const divTapesIDsOuter = document.createElement('div');
