@@ -462,7 +462,7 @@ let gvTitlesObj = {
 "2015-06 dave surrey wildlife centre" : "Dave Surrey Wildlife Centre, 2015",
 "2017-01 hobbiesailing" : "Dave helming Hobbie, Turkey, 2017",
 "2019-01 daveexetergraduation" : "Dave Exeter graduation 2019",
-"199110" : "1991 Oct",
+"199110_" : "1991 Oct",
 "199111_199112" : "1991 Nov - Dec",
 "199112_199202" : "1991 Dec - 1992 Feb",
 "199203_199206" : "1992 Mar - Jun",
@@ -481,6 +481,7 @@ let gvTitlesObj = {
 "200108_200112" : "2001 Aug - Dec",
 "200202_200205" : "2002 Feb - May",
 "200206_200207" : "2002 Jun - Jul",
-"200208" : "2002 Aug",
-"200209" : "2002 Sep"
+"200208_" : "2002 Aug",
+"200208_200301" : "2002 Aug - 2003 Jan",
+"200303_" : "2003 Mar"
 };
